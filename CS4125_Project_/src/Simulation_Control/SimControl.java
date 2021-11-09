@@ -1,6 +1,18 @@
 package Simulation_Control;
 
-public class SimControl {
+import java.util.ArrayList;
+
+import Driver.Driver;
+//import Subject.Observer;
+import Subject.Subject;
+import Vehicle.Vehicle;
+
+public class SimControl implements Subject{
+	
+	public ArrayList observers;// Observer Pattern
+	
+	public Vehicle veh;
+	public Driver dri;
 	
 	Arraylist<Drivrer> drivers;
 	Arraylist<Vehicle> cars;
@@ -23,10 +35,40 @@ public class SimControl {
 	String Output_result();
 
 
+	public SimControl() {
+		observers = new ArrayList();
+	}
 
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void registerObserver(Observer o) {
+		// TODO Auto-generated method stub
+		observers.add(o);
+	}
+	@Override
+	public void removeObserver(Observer o) {
+		// TODO Auto-generated method stub
+		int i = observers.indexOf(o);
+		if (i >= 0) {
+		observers.remove(i);
+		}
+
+	}
+	@Override
+	public void notifyObservers() {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < observers.size(); i++) {
+			Observer observer = (Observer)observers.get(i);
+			observer.update(????); // // =====not sure to update what type of element===== maybe it should update all elements
+			}
+
+	}
+	public void ElementsChanged() {
+		notifyObservers();
 	}
 
 }

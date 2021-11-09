@@ -1,6 +1,6 @@
 package Vehicle;
 
-public class Vehicle {
+public class Vehicle implements SetElement {
 	
 	Enum Brand;
 	double length;
