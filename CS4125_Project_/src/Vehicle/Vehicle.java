@@ -1,5 +1,7 @@
 package Vehicle;
 
+import SetElement.SetElement;
+
 public class Vehicle implements SetElement {
 	
 	Enum Brand;
