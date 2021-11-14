@@ -1,10 +1,14 @@
 package Evaluation;
 
+// =================not used
+
 public class Evaluation {
-	int index;
-	string evaluation;
-	int suggestion_index;
+	public int index;
+	public String evaluation;
+	public int suggestion_index;
 	
-	void set_evaluation();
+	void set_evaluation() {
+		;//more
+	}
 
 }

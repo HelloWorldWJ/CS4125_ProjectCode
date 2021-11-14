@@ -1,11 +1,13 @@
 package Map;
 
 public class Map {
-	int index;
-	Map_size_x;
-	Map_size_y;
+	public int index;
+	public int Map_size_x;
+	public int Map_size_y;
 
 
-	void set_map();
+	void set_map() {
+		;//more
+	}
 
 }

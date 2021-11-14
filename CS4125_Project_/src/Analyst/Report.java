@@ -14,11 +14,13 @@ public class Report implements Observer{
 	
 	
 	int index;
-	string report;
+	String report;
 	int map_index;
 	int account_index;
 
-	void set_report();
+	void set_report() {
+		;//(more)
+	}
 
 	@Override
 	public void updateVeh(Vehicle veh) {
@@ -38,13 +40,13 @@ public class Report implements Observer{
 		this.wlight = wlight;
 		output_report();
 	}
-	@Override
-	public void updata(Vehicle veh, Driver dri, Warning_Light wlight) {
-		this.veh = veh;
-		this.dri = dri;
-		this.wlight = wlight;
-		output_report();
-	}
+//	@Override
+//	public void updata(Vehicle veh, Driver dri, Warning_Light wlight) {
+//		this.veh = veh;
+//		this.dri = dri;
+//		this.wlight = wlight;
+//		output_report();
+//	}
 
 	public void output_report() {
 		// it should output all elements not single element============

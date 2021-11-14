@@ -13,7 +13,12 @@ import Control_Factor.Warning_Light;
 
 public class SimControl implements Subject, SetElement{
 	
-	public ArrayList<Objects> observers;// Observer Pattern
+	public ArrayList observers;// Observer Pattern
+//	public enum ElementsChangedType {
+//		VEHICLES,
+//		DRIVERS,
+//		WLIGHTS
+//	}
 	
 	public ArrayList<Vehicle> vehicles;
 	public ArrayList<Driver> drivers;
@@ -32,20 +37,22 @@ public class SimControl implements Subject, SetElement{
 //	String crash_result;
 //	String total_result;
 	
-	void Create_environment();
-	void Create_cars();
-	void Set_driver();
-	void Set_Speed_limit();
-	void Start_sim();
-	void Pause_sim();
-	void Stop_sim();
-	void Congestion_report();
-	void Crash_report();
-	String Output_result();
-
+	
+//=======some original methods========	
+//	void Create_environment();
+//	void Create_cars();
+//	void Set_driver();
+//	void Set_Speed_limit();
+//	void Start_sim();
+//	void Pause_sim();
+//	void Stop_sim();
+//	void Congestion_report();
+//	void Crash_report();
+//	String Output_result();
+//==========================
 
 	public SimControl() {
-		observers = new ArrayList<Objects>();
+		observers = new ArrayList();
 	}
 	
 	@Override
@@ -64,38 +71,58 @@ public class SimControl implements Subject, SetElement{
 	}
 	
 	@Override
-	public void notifyObservers() {
+	public void notifyObservers1(Vehicle veh) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < observers.size(); i++) {
 			Observer observer = (Observer)observers.get(i);
-			observer.update(); // // it should update all elements
+			observer.updateVeh(veh); 
 			}
 
 	}
-	public void ElementsChanged() {
-		notifyObservers();
+	
+	@Override
+	public void notifyObservers2(Driver dri) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < observers.size(); i++) {
+			Observer observer = (Observer)observers.get(i);
+			observer.updateDri(dri); 
+			}
+
 	}
+	
+	@Override
+	public void notifyObservers3(Warning_Light wlight) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < observers.size(); i++) {
+			Observer observer = (Observer)observers.get(i);
+			observer.updateWlight(wlight); 
+			}
+
+	}
+	
+//	public void ElementsChanged() {
+//		notifyObservers();
+//	}
 	
 	@Override
 	public void setElementVeh(Vehicle veh) {
 		// TODO Auto-generated method stub
 		this.veh = veh;
+		notifyObservers1(veh);
 	}
 	@Override
 	public void setElementDri(Driver dri) {
 		// TODO Auto-generated method stub
 		this.dri = dri;
+		notifyObservers2(dri);
 	}
 	
 	@Override
 	public void setElementWlight(Warning_Light wlight) {
 		// TODO Auto-generated method stub
 		this.wlight = wlight;
+		notifyObservers3(wlight);
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
