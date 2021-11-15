@@ -21,6 +21,9 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
+
+
+
 public class Draw_map implements I_Draw_map{
 	private int index;
 	private int Map_size_x;
@@ -49,6 +52,8 @@ public class Draw_map implements I_Draw_map{
 		
 		this.set_map();
 		
+		
+	
 		
 	}
 	
