@@ -11,9 +11,12 @@ public class Sim_Controller extends Thread_source{
 	Dimension UI_size = Toolkit.getDefaultToolkit().getScreenSize();
 	public Sim_Controller()
 	{
-		this.map_wi = UI_size.getWidth()/2;
-		this.map_he = UI_size.getHeight()/2;
-		this.graphics = new Gra_Controller(map_wi, map_he,road); // may use the factory method
+		System.out.println("Sim_Control "+map_wi);
+//		this.map_wi = UI_size.getWidth()/2;
+//		this.map_he = UI_size.getHeight()/2;
+		this.map_wi = 2000/2;
+		this.map_he = 2000/2; // need change
+		this.graphics = new Gra_Controller(this.map_wi, this.map_he,road); // may use the factory method
 	}
 	
 	

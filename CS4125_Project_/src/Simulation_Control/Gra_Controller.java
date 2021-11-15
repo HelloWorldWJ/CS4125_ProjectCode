@@ -6,29 +6,31 @@ import Map.Road;
 
 public class Gra_Controller extends Thread_source{
 	private double map_wi, map_he;
-	public Draw_map d_w;
+	public Draw_map d_map;
 	private IDisplay idisplay;
 	
 	
 	public Gra_Controller(double ui_wi,double ui_he,Road road) {
-	this.map_he = map_he;
-	this.map_wi = map_wi;
+	this.map_he = ui_he;
+	this.map_wi = ui_wi;
 	this.initDisplay();
-	this.d_w = new Draw_map(this.idisplay, map_wi, map_he, road);
+	this.d_map = new Draw_map(this.idisplay, map_wi, map_he, road);
+	System.out.println("Gra_Control "+map_wi+" "+map_he);
 	
 	}
 	
 	@Override
 	public void run()//use the run function in Control_thread
 	{
-		d_w.render();
+		d_map.render();
 		
 	}
 	
 	public void initDisplay()
 	{
-		Display display = new Display(map_he, map_wi);
-		display.createDisplay();
+		
+		idisplay = new Display(map_he, map_wi);
+		idisplay.createDisplay();
 		
 	}
 	

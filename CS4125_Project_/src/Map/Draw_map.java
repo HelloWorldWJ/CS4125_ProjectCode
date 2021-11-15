@@ -39,21 +39,30 @@ public class Draw_map implements I_Draw_map{
 	{
 		this.Map_size_x = (int)map_wi;
 		this.Map_size_y = (int)map_he;
+	
 		this.road = road;
 		this.display = idis;
-		this.background =  create_background();
-		this.set_map();
+		
 		this.BACKGROUND_PATH = "1.jpg";
+		
+		this.background =  create_background();
+		
+		this.set_map();
+		
+		
 	}
 	
 
 
 	private void set_map() //create the graphics of map
 	{
-		this.display.getCanvas().createBufferStrategy(2);
+		
+		this.display.getCanvas().createBufferStrategy(1);
+		
 		this.buffer = display.getCanvas().getBufferStrategy();
 		
         this.graphics = (Graphics2D) buffer.getDrawGraphics();
+        
     	this.graphics.clearRect(0, 0, Map_size_x, Map_size_y);
 		
 	}
@@ -75,12 +84,16 @@ public class Draw_map implements I_Draw_map{
 	{
 		
 		try {
-			System.out.print("ad");
-			return ImageIO.read(new File(BACKGROUND_PATH));
 			
+			return ImageIO.read(new File(this.BACKGROUND_PATH));
 			
+
             } 
+		
+		
 		catch (Exception e) {
+			
+			
             return null;
         }
 		
