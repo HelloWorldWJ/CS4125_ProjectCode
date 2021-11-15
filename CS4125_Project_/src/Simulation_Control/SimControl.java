@@ -124,5 +124,6 @@ public class SimControl implements Subject, SetElement{
 		notifyObservers3(wlight);
 	}
 	
+	
 
 }
