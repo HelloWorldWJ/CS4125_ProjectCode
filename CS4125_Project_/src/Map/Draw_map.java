@@ -11,6 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+
+import Driver.Driver;
+import Vehicle.Vehicle;
+import Vehicle.VehicleFactory;
+
 import java.awt.BasicStroke;
 
 
@@ -31,6 +36,8 @@ public class Draw_map implements I_Draw_map{
 	private BufferedImage background;
 	private final String BACKGROUND_PATH;
 	private Point center;
+	private Driver driver;
+	private Vehicle vehicle;
 	
 	//private Road road
 	
@@ -51,9 +58,13 @@ public class Draw_map implements I_Draw_map{
         
         
 	    this.lane = new Lane(450, 10, Map_size_y, Map_size_y, 25,1000, new Color(71, 73, 76));//will use the arraylist
-	    		
 	    
 	    
+	    Point center = new Point(450,10);		
+	    //this.vehicle = new VehicleFactory().createVehicle(10, 10, 10, 3, center, road, lane, BACKGROUND_PATH);
+	    	
+	    
+	    //this.driver = new DriverFactory().createMap();
 		this.display = idis;	
 		this.BACKGROUND_PATH = "background.png";
 		this.background =  create_background();
@@ -81,11 +92,18 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 
-	private void drawVehicle()
+	/*private void drawVehicle()
 	{
-		
+		Point pos = v.getPosition();
+        Point p2 = new Point(pos.x - (v.getVehicleWidth() / 2), pos.y - (v.getVehicleHeight() / 2));
+
+        AffineTransform at = new AffineTransform();
+        at.rotate(v.getAngle(), p2.x + (v.getVehicleWidth() / 2), p2.y + (v.getVehicleHeight() / 2));
+        at.translate(p2.x + (v.getVehicleWidth() / 8), p2.y + (v.getVehicleWidth() / 4));
+
+        this.graphics.drawImage(v.getCarImage(), at, null);
 	}
-	
+	*/
 	
 	private void drawLane(Lane lane)
 	{
@@ -109,6 +127,9 @@ public class Draw_map implements I_Draw_map{
 		
 		this.drawbackground();
 		this.drawLane(lane);
+		
+        //this.drawVehicle(d.getVehicle());
+    	
 		
 		this.buffer.show();
 	}
