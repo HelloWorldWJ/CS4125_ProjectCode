@@ -80,12 +80,13 @@ public class Draw_map implements I_Draw_map{
 
 	}
 	
-//	private void drawroad(Road road)
-//	{
-//		this.graphics.setColor();
-//		this.graphics.setStroke();
-//		this.graphics.draw(new Ellipse2D.Double());
-//	}
+
+	private void drawVehicle()
+	{
+		
+	}
+	
+	
 	private void drawLane(Lane lane)
 	{
 		this.graphics.setColor(lane.getLaneColor());
