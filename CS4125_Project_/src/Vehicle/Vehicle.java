@@ -81,6 +81,9 @@ public class Vehicle {
 	public Lane getLane() {
 		return track;
 	}
+	public BufferedImage getCarImage() {
+		return this.carImage;
+	}
 	
 	public String getVehicleImagePath() {
 		return this.imagePath;

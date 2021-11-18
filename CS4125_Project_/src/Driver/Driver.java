@@ -18,7 +18,7 @@ public class Driver {
 	{
 		return this.name;
 	}
-	public Vehicle geVehilce()
+	public Vehicle getVehilce()
 	{
 		return this.vehicle;
 	}

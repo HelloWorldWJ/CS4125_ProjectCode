@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import Driver.Driver;
+import Driver.DriverFactory;
 import Vehicle.Vehicle;
 import Vehicle.VehicleFactory;
+import Driver.DriverFactory.DriverTemper;
 
 import java.awt.BasicStroke;
 
@@ -60,11 +62,12 @@ public class Draw_map implements I_Draw_map{
 	    this.lane = new Lane(450, 10, Map_size_y, Map_size_y, 25,1000, new Color(71, 73, 76));//will use the arraylist
 	    
 	    
-	    Point center = new Point(450,10);		
-	    this.vehicle = new VehicleFactory().createVehicle(10, 10, 10, 3, center, road, lane, "yellow.jpg");
-	    	
+	    Point center = new Point(450,25);	
+	   
+	    this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
+	    this.driver = new DriverFactory().createDriver(DriverTemper.NORMAL,vehicle,"Tom");	
 	    
-	    //this.driver = new DriverFactory().createMap();
+	    
 		this.display = idis;	
 		this.BACKGROUND_PATH = "background.png";
 		this.background =  create_background();
@@ -128,7 +131,7 @@ public class Draw_map implements I_Draw_map{
 		this.drawbackground();
 		this.drawLane(lane);
 		
-        //this.drawVehicle(d.getVehicle());
+        this.drawVehicle();
     	
 		
 		this.buffer.show();
