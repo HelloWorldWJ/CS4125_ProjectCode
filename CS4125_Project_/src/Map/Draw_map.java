@@ -95,10 +95,10 @@ public class Draw_map implements I_Draw_map{
 	private void drawVehicle()
 	{
 		Point pos = vehicle.getPosition();
-        Point p2 = new Point((int)(pos.x - (vehicle.getVehicleWidth() / 2)), (int)(pos.y - (vehicle.getVehicleHeight() / 2)));
+        Point p2 = new Point((int)(pos.x - (vehicle.getVehicleWidth() / 2)), (int)(pos.y - (vehicle.getVehicleLength() / 2)));
 
         AffineTransform at = new AffineTransform();
-        at.rotate(vehicle.getAngle(), p2.x + (vehicle.getVehicleWidth() / 2), p2.y + (vehicle.getVehicleHeight() / 2));
+        at.rotate(vehicle.getAngle(), p2.x + (vehicle.getVehicleWidth() / 2), p2.y + (vehicle.getVehicleLength() / 2));
         at.translate(p2.x + (vehicle.getVehicleWidth() / 8), p2.y + (vehicle.getVehicleWidth() / 4));
 
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
