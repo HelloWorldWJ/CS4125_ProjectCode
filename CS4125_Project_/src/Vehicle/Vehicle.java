@@ -1,8 +1,12 @@
 package Vehicle;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -25,6 +29,7 @@ public class Vehicle {
 	private int current_location_x;
 	private int current_location_y;
 	private String imagePath;
+	private BufferedImage carImage;
 	
 //	private int currentCell, vehicleWidth, vehicleHeight, currentLaneId, vehicleId;
 //	private double maxSpeed, currentSpeed, angle;
@@ -34,7 +39,6 @@ public class Vehicle {
 //	private Color color;
 //	private String imagePath;
 //	private I_VehicleState state;
-	private BufferedImage carImage;
 	
 	
 	public Vehicle() {
@@ -59,6 +63,7 @@ public class Vehicle {
 		this.imagePath = imagePath;
 //		this.current_location_x = current_location_x;
 //		this.current_location_y = current_location_y;
+		this.carImage = createCarImage();
 	}
 	
 	public Point getPosition(){
@@ -81,7 +86,7 @@ public class Vehicle {
 		return this.imagePath;
 	}
 	
-	public double getVehicleHeight() {
+	public double getVehicleLength() {
 		return vehicleLength;
 	}
 	
@@ -91,6 +96,19 @@ public class Vehicle {
 	
 	public double getSpeed() {
 		return speed;
+	}
+	
+	private BufferedImage createCarImage() {
+		try {
+            BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));
+        	BufferedImage resized_car_image = new BufferedImage((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), BufferedImage.TYPE_INT_ARGB);
+	        Graphics2D graphics = resized_car_image.createGraphics();
+	        graphics.drawImage(img.getScaledInstance((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), Image.SCALE_SMOOTH), 0, 0, null);
+	        graphics.dispose();
+        	return resized_car_image;
+		} catch (IOException ex) {
+			return null;
+		}
 	}
 	
 
