@@ -15,7 +15,7 @@ public class Gra_Controller extends Thread_source{
 	this.map_he = ui_he;
 	this.map_wi = ui_wi;
 	this.initDisplay();
-	this.d_map = new Draw_map(this.idisplay, map_wi, map_he, road);
+	this.d_map = new Draw_map(idisplay, map_wi, map_he, road);
 	
 	System.out.println("Gra_Control map_width "+map_wi+" Map_height "+map_he);
 	
@@ -26,9 +26,12 @@ public class Gra_Controller extends Thread_source{
 	{
 		Timer t = new Timer(Timer.DEFAULT_FRAMERATE);
     	t.setMessage("Map");
-    	while(true) {
+		
+		boolean success = true;
+    	while(success) {
         	t.start();
         	this.d_map.render();
+        	//System.out.print("run ");
         	t.end();
         }
 		
@@ -37,8 +40,8 @@ public class Gra_Controller extends Thread_source{
 	public void initDisplay()
 	{
 		
-		this.idisplay = new Display(map_he, map_wi);
-		this.idisplay.createDisplay();
+		idisplay = new Display(map_wi,map_he );
+		idisplay.createDisplay();
 		
 	}
 	

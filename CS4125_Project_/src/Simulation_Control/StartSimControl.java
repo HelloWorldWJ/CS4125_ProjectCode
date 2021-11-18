@@ -9,6 +9,7 @@ public class StartSimControl {
 		
 		//Thread_source source = 
 		Sim_Controller sim = new Sim_Controller();
+		sim.begin();
 		System.out.print("hello");
 		
 		

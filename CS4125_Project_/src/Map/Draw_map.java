@@ -23,12 +23,14 @@ public class Draw_map implements I_Draw_map{
 	private int index;
 	private int Map_size_x;
 	private int Map_size_y;
-	private Road road;
+	private Road road;//may not be used
+	private Lane lane;
 	private IDisplay display;
 	private Graphics2D graphics;
 	private BufferStrategy buffer;
 	private BufferedImage background;
 	private final String BACKGROUND_PATH;
+	private Point center;
 	
 	//private Road road
 	
@@ -39,9 +41,21 @@ public class Draw_map implements I_Draw_map{
 
 		this.Map_size_x = (int)map_wi;
 		this.Map_size_y = (int)map_he;   		
-	    this.road = road;
+	    this.road = road;//may not be used
+	    
+	    this.center = new Point((Map_size_x), (Map_size_y));
+	    int currentX = (int) center.getX();
+        int currentY = (int) center.getY();
+        System.out.println("Draw_map class currentX: "+currentX+" currentY "+currentY);
+        
+        
+        
+	    this.lane = new Lane(450, 10, Map_size_y, Map_size_y, 25,1000, new Color(71, 73, 76));//will use the arraylist
+	    		
+	    
+	    
 		this.display = idis;	
-		this.BACKGROUND_PATH = "1.jpg";
+		this.BACKGROUND_PATH = "background.png";
 		this.background =  create_background();
 		this.set_map();
 	
@@ -58,17 +72,25 @@ public class Draw_map implements I_Draw_map{
 		
         this.graphics = (Graphics2D) buffer.getDrawGraphics();
         
-        this.graphics.setColor(Color.GREEN);
+   
+         //this.graphics.setColor(Color.BLACK);
+         this.graphics.clearRect(0, 0, 700, 700);
         
-        this.graphics.clearRect(0, 0, Map_size_x, Map_size_y);
-        
-        
-    	
-    	
-		
+
+
 	}
-	private void drawroad()
+	
+//	private void drawroad(Road road)
+//	{
+//		this.graphics.setColor();
+//		this.graphics.setStroke();
+//		this.graphics.draw(new Ellipse2D.Double());
+//	}
+	private void drawLane(Lane lane)
 	{
+		this.graphics.setColor(lane.getLaneColor());
+		this.graphics.setStroke(new BasicStroke(lane.getline_width()));
+		this.graphics.draw(new Ellipse2D.Double(lane.getX(), lane.getY(), lane.getWi(), lane.getHe()));
 		
 	}
 	
@@ -85,6 +107,7 @@ public class Draw_map implements I_Draw_map{
 		
 		
 		this.drawbackground();
+		this.drawLane(lane);
 		
 		this.buffer.show();
 	}
@@ -105,7 +128,7 @@ public class Draw_map implements I_Draw_map{
 		
 		catch (Exception e) {
 			
-			
+			System.out.print(e);
             return null;
         }
 		

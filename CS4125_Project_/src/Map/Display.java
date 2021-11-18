@@ -7,6 +7,17 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+
 
 public class Display implements IDisplay{
 	
@@ -17,8 +28,9 @@ public class Display implements IDisplay{
 	
 	public Display(double map_wi, double map_he)
 	{
-		this.map_he = (int)map_he;
+		
 		this.map_wi = (int)map_wi;
+		this.map_he = (int)map_he;
 		this.screen = new Dimension();
 		screen.setSize(map_wi,map_he);
 		
@@ -38,14 +50,17 @@ public class Display implements IDisplay{
         frame.setLocationRelativeTo(null);
         frame.setMinimumSize(new Dimension(this.map_wi, this.map_he));
         frame.setLocation(0, 0);
+        
         canvas = new Canvas();
-        canvas.setPreferredSize(this.screen);
-        canvas.setBackground(Color.BLACK);
+        canvas.setSize(1000 , 606 );//set the size of canvas
+        //canvas.setPreferredSize(this.screen);
+        canvas.setBackground(Color.GREEN);
         
         canvas.setVisible(true);
-        canvas.setSize(this.map_wi * 2, this.map_he * 2);   
+          
+        
+        
         frame.add(canvas);
-    
 	    frame.pack();
 
      }

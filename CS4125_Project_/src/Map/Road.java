@@ -28,5 +28,6 @@ public class Road {
 		return 50;//it will some if statements
 		
 	}
+	
 
 }
