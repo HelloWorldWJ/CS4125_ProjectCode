@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
+
 import Map.Lane;
 import Map.Road;
 import SetElement.SetElement;
@@ -32,7 +34,7 @@ public class Vehicle {
 //	private Color color;
 //	private String imagePath;
 //	private I_VehicleState state;
-//	private BufferedImage carImage;
+	private BufferedImage carImage;
 	
 	
 	public Vehicle() {
@@ -91,5 +93,6 @@ public class Vehicle {
 		return speed;
 	}
 	
+
 	
 }

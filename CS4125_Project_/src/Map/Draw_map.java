@@ -61,7 +61,7 @@ public class Draw_map implements I_Draw_map{
 	    
 	    
 	    Point center = new Point(450,10);		
-	    //this.vehicle = new VehicleFactory().createVehicle(10, 10, 10, 3, center, road, lane, BACKGROUND_PATH);
+	    this.vehicle = new VehicleFactory().createVehicle(10, 10, 10, 3, center, road, lane, "yellow.jpg");
 	    	
 	    
 	    //this.driver = new DriverFactory().createMap();
@@ -74,7 +74,7 @@ public class Draw_map implements I_Draw_map{
 	
 
 
-	private void set_map() //create the graphics of map
+	public void set_map() //create the graphics of map
 	{
 		
 		this.display.getCanvas().createBufferStrategy(1);
@@ -92,18 +92,18 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 
-	/*private void drawVehicle()
+	private void drawVehicle()
 	{
-		Point pos = v.getPosition();
-        Point p2 = new Point(pos.x - (v.getVehicleWidth() / 2), pos.y - (v.getVehicleHeight() / 2));
+		Point pos = vehicle.getPosition();
+        Point p2 = new Point((int)(pos.x - (vehicle.getVehicleWidth() / 2)), (int)(pos.y - (vehicle.getVehicleHeight() / 2)));
 
         AffineTransform at = new AffineTransform();
-        at.rotate(v.getAngle(), p2.x + (v.getVehicleWidth() / 2), p2.y + (v.getVehicleHeight() / 2));
-        at.translate(p2.x + (v.getVehicleWidth() / 8), p2.y + (v.getVehicleWidth() / 4));
+        at.rotate(vehicle.getAngle(), p2.x + (vehicle.getVehicleWidth() / 2), p2.y + (vehicle.getVehicleHeight() / 2));
+        at.translate(p2.x + (vehicle.getVehicleWidth() / 8), p2.y + (vehicle.getVehicleWidth() / 4));
 
-        this.graphics.drawImage(v.getCarImage(), at, null);
+        this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
-	*/
+	
 	
 	private void drawLane(Lane lane)
 	{
