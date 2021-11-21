@@ -31,7 +31,12 @@ public class Draw_map implements I_Draw_map{
 	private int Map_size_x;
 	private int Map_size_y;
 	private Road road;//may not be used
+	
+	
 	private Lane lane;
+	private Lane lane1;
+	
+	
 	private IDisplay display;
 	private Graphics2D graphics;
 	private BufferStrategy buffer;
@@ -59,11 +64,11 @@ public class Draw_map implements I_Draw_map{
         
         
         
-	    this.lane = new Lane(450, 10, Map_size_y, Map_size_y, 25,1000, new Color(71, 73, 76));//will use the arraylist
+	    this.lane = new Lane(500, 0, Map_size_y/*radius*/, Map_size_y, 25/*the width of lane*/, 1000, new Color(71, 73, 76));//will use the arraylist
+	    this.lane1 = new Lane(525, 25, Map_size_y - 25, Map_size_y -25, 25, 1000, new Color(87, 73, 76));//will use the arraylist
 	    
 	    
 	    Point center = new Point(450,25);	
-	   
 	    this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
 	    this.driver = new DriverFactory().createDriver(DriverTemper.NORMAL,vehicle,"Tom");	
 	    
@@ -130,6 +135,7 @@ public class Draw_map implements I_Draw_map{
 		
 		this.drawbackground();
 		this.drawLane(lane);
+		this.drawLane(lane1);
 		
         this.drawVehicle();
     	
