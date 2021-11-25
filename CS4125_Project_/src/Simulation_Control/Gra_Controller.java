@@ -4,6 +4,7 @@ import Map.Draw_map;
 import Map.IDisplay;
 import Map.Road;
 import Thread.Timer;
+import Driver.Driver;
 
 public class Gra_Controller extends Thread_source{
 	private double map_wi, map_he;
@@ -11,11 +12,11 @@ public class Gra_Controller extends Thread_source{
 	private IDisplay idisplay;
 	
 	
-	public Gra_Controller(double ui_wi,double ui_he,Road road) {
+	public Gra_Controller(double ui_wi,double ui_he,Road road,Driver driver) {
 	this.map_he = ui_he;
 	this.map_wi = ui_wi;
 	this.initDisplay();
-	this.d_map = new Draw_map(idisplay, map_wi, map_he, road);
+	this.d_map = new Draw_map(idisplay, map_wi, map_he, road,driver);
 	
 	System.out.println("Gra_Control map_width "+map_wi+" Map_height "+map_he);
 	

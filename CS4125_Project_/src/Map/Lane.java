@@ -6,9 +6,11 @@ public class Lane {
 	private Point center;
 	private int wi;
 	private int he;
-	private int cell_count;
 	private int lane_width;
 	private Color lane_Color;
+	private double angle_per_cell;// every single space has a specified angle
+	private int number_of_cells;
+	
 	
 	public Lane(int x, int y, int wi, int he, int lane_width, int numCells, Color color)
 	{
@@ -18,8 +20,10 @@ public class Lane {
 		this.wi = wi;
 		this.he = he;
 		this.lane_width = lane_width;
-		this.cell_count = numCells;
+		this.number_of_cells = numCells;
+		this.angle_per_cell = 360/this.number_of_cells;
 		this.lane_Color = color;
+		
 
 	}
 	public int getX() {
@@ -37,16 +41,26 @@ public class Lane {
 	public int getHe() {
 		return this.he;
 	}
+	
 	public int getline_width()
 	{
 		return this.lane_width;
 	}
 
 	public int getNumCells() {
-		return this.cell_count;
+		return this.number_of_cells;
 	}
+	
 	public Color getLaneColor() {
 		return lane_Color;
+	}
+	
+	public Point get_Position(int cell_index)// need to be modified
+	{
+		Point p = new Point();
+		double angele = this.angle_per_cell*(cell_index % this.number_of_cells);
+		return p;
+		
 	}
 
 }

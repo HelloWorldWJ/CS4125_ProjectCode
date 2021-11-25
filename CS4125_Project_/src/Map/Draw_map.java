@@ -49,7 +49,7 @@ public class Draw_map implements I_Draw_map{
 	//private Road road
 	
 	
-	public Draw_map(IDisplay idis, double map_wi, double map_he, Road road)
+	public Draw_map(IDisplay idis, double map_wi, double map_he, Road road,Driver driver)
 	{
 		System.out.println("Draw_map "+Map_size_x+" "+Map_size_y);
 
@@ -65,12 +65,10 @@ public class Draw_map implements I_Draw_map{
         
         
 	    this.lane = new Lane(500, 0, Map_size_y/*radius*/, Map_size_y, 25/*the width of lane*/, 1000, new Color(71, 73, 76));//will use the arraylist
-	    this.lane1 = new Lane(525, 25, Map_size_y - 25, Map_size_y -25, 25, 1000, new Color(87, 73, 76));//will use the arraylist
-	    
-	    
-	    Point center = new Point(450,25);	
-	    this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
-	    this.driver = new DriverFactory().createDriver(DriverTemper.NORMAL,vehicle,"Tom");	
+	    this.lane1 = new Lane(525, 25, Map_size_y - 25, Map_size_y -25, 25, 1000, new Color(87, 73, 76));//will use the arraylist  
+	    //Point center = new Point(450,25);	
+	    //this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
+	    this.driver = driver;	
 	    
 	    
 		this.display = idis;	
@@ -100,9 +98,9 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 
-	private void drawVehicle()
+	private void drawVehicle(Vehicle vehicle)
 	{
-		Point pos = vehicle.getPosition();
+		Point pos = driver.getVehilce().getPosition();
         Point p2 = new Point((int)(pos.x - (vehicle.getVehicleWidth() / 2)), (int)(pos.y - (vehicle.getVehicleLength() / 2)));
 
         AffineTransform at = new AffineTransform();
@@ -137,7 +135,7 @@ public class Draw_map implements I_Draw_map{
 		this.drawLane(lane);
 		this.drawLane(lane1);
 		
-        this.drawVehicle();
+        this.drawVehicle(this.driver.getVehilce());
     	
 		
 		this.buffer.show();

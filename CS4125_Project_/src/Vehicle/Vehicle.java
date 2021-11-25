@@ -100,7 +100,12 @@ public class Vehicle {
 	public double getSpeed() {
 		return speed;
 	}
-	
+	public void move(int speed)
+	{
+		this.position.x = this.position.x-speed;
+		//this.position.x = this.position.x+1;
+		
+	}
 	private BufferedImage createCarImage() {
 		try {
             BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));
@@ -113,6 +118,8 @@ public class Vehicle {
 			return null;
 		}
 	}
+	
+	
 	
 
 	
