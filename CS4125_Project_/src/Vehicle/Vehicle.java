@@ -11,7 +11,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import Map.Lane1;
-import Map.Road;
+
 import SetElement.SetElement;
 
 public class Vehicle {
@@ -22,9 +22,8 @@ public class Vehicle {
 	private double vehicleLength;
 	private double vehicleWidth;
 	private Lane1 track;
-	private Road road;
+	
 	private double speed, angle;
-//	private double maxSpeed, currentSpeed, angle;
 	private Point position;
 	private int current_location_x;
 	private int current_location_y;
@@ -34,7 +33,7 @@ public class Vehicle {
 	private double angular_speed;
 	
 
-	public Vehicle(double length, double width, double angular_speed, double angle, Point xy, Road road, Lane1 track, String imagePath) {
+	public Vehicle(double length, double width, double angular_speed, double angle, Point xy,  Lane1 track, String imagePath) {
 //		this.Brand = Brand;
 		this.vehicleLength = length;
 		this.vehicleWidth = width;
@@ -42,7 +41,7 @@ public class Vehicle {
 		this.speed = speed;
 		this.angle = angle;
 		this.position = xy;
-		this.road = road;
+
 		this.track = track;
 		this.angular_speed = angular_speed;
 		this.imagePath = imagePath;
@@ -72,9 +71,7 @@ public class Vehicle {
 		return angle;
 	}
 	
-	public Road getRoad(){
-		return road;
-	}
+
 
 	public Lane1 getLane() {
 		return track;

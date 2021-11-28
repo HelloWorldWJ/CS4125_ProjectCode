@@ -3,7 +3,7 @@ package Vehicle;
 import java.awt.Point;
 
 import Map.Lane1;
-import Map.Road;
+
 
 public class VehicleFactory {
 	
@@ -14,12 +14,12 @@ public class VehicleFactory {
 		Mediumcar
 	};
 	
-	public Vehicle createVehicle(double length, double width, double speed, double angle, Point xy, Road road, Lane1 track, String imagePath,VehicleType type) 
+	public Vehicle createVehicle(double length, double width, double speed, double angle, Point xy,  Lane1 track, String imagePath,VehicleType type) 
 	{
 		switch(type)
 		{
 		case Fastcar:
-			return new Fastcar(length,width,speed,angle,xy,road,track,imagePath);
+			return new Fastcar(length,width,speed,angle,xy,track,imagePath);
 			
 		default:
 			return null;
