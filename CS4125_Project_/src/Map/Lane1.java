@@ -1,9 +1,8 @@
 package Map;
+import java.awt.*;
+import java.util.HashMap;
 
-import java.awt.Color;
-import java.awt.Point;
-
-public class Lane {
+public class Lane1 extends Lane{
 	private Point center;
 	private int wi;
 	private int he;
@@ -13,8 +12,19 @@ public class Lane {
 	private int number_of_cells;
 	
 	
-	public Lane()
+	public Lane1()
 	{
+	
+		this.center = new Point();
+		center.x = 500;
+		center.y = 25;
+		this.wi = 581;
+		this.he = 581;
+		this.lane_width = 25;
+		this.number_of_cells = 1000;
+		this.angle_per_cell = 360/this.number_of_cells;
+		this.lane_Color =  new Color(71, 73, 76);
+		
 
 	}
 	public int getX() {

@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Map.Lane;
+import Map.Lane1;
 import Map.Road;
 import SetElement.SetElement;
 
@@ -21,7 +21,7 @@ public class Vehicle {
 	}
 	private double vehicleLength;
 	private double vehicleWidth;
-	private Lane track;
+	private Lane1 track;
 	private Road road;
 	private double speed, angle;
 //	private double maxSpeed, currentSpeed, angle;
@@ -34,7 +34,7 @@ public class Vehicle {
 	private double angular_speed;
 	
 
-	public Vehicle(double length, double width, double angular_speed, double angle, Point xy, Road road, Lane track, String imagePath) {
+	public Vehicle(double length, double width, double angular_speed, double angle, Point xy, Road road, Lane1 track, String imagePath) {
 //		this.Brand = Brand;
 		this.vehicleLength = length;
 		this.vehicleWidth = width;
@@ -76,7 +76,7 @@ public class Vehicle {
 		return road;
 	}
 
-	public Lane getLane() {
+	public Lane1 getLane() {
 		return track;
 	}
 	
@@ -102,13 +102,9 @@ public class Vehicle {
 	public void move(int speed)
 	{
 		this.Sum_angle();
-		this.position.x = (int)(Math.sin(this.circle_angle) * 303 + 553);
+		this.position.x = (int)(Math.sin(Math.PI/180 *this.circle_angle) * 303 + 553 - 12);
 		System.out.println(this.circle_angle);
-		this.position.y = (int)(Math.cos(this.circle_angle) *  303 + 328);
-		//this.position.x = this.position.x+speed;
-		//this.position.y = this.position.y+speed;
-		//this.position.x = this.position.x+1;
-		
+		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  303 - 20);
 	}
 	private BufferedImage createCarImage() {
 		try {

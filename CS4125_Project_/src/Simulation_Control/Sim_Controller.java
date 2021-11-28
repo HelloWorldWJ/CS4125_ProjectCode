@@ -1,12 +1,12 @@
 package Simulation_Control;
 import java.awt.*;
 
-import Map.Lane;
+import Map.Lane1;
 import Map.Road;
 import Driver.Driver;
 import Driver.DriverFactory.DriverTemper;
 import Vehicle.Vehicle;
-import Map.Lane;
+import Map.Lane1;
 import Simulation_Control.Thread_source;
 
 public class Sim_Controller extends Thread_source{
@@ -16,7 +16,7 @@ public class Sim_Controller extends Thread_source{
 	Dimension UI_size = Toolkit.getDefaultToolkit().getScreenSize();
 	private Driver d;
 	private Vehicle v;
-	private Lane lane;
+	private Lane1 lane1;
 	private Point center;
 	
 	public Sim_Controller()
@@ -27,17 +27,22 @@ public class Sim_Controller extends Thread_source{
 		this.map_wi = 1000;
 		this.map_he = 606; // need change
 		
+		create_Driver();
 		
-		this.center = new Point((541), (12));
-		this.lane = new Lane(500, 0, 606/*radius*/,606, 25/*the width of lane*/, 1000, new Color(71, 73, 76));	
-		
-		this.v = new Vehicle(20, 20, 0.01, 3, center, road, lane, "yellow.jpg");
-		this.d = new Driver("Tom",v);
 		
 		
 		this.graphics = new Gra_Controller(this.map_wi, this.map_he,road,d); // may use the factory method
 	}
 	
+	public void create_Driver()
+	{
+		this.center = new Point((541), (12));
+		this.lane1 = new Lane1();	
+		
+		this.v = new Vehicle(20, 20, 1, 3, center, road, lane1, "yellow.jpg");
+		this.d = new Driver("Tom",v);
+		
+	}
 	
 	public void begin()
 	{

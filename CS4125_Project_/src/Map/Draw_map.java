@@ -27,8 +27,8 @@ public class Draw_map implements I_Draw_map{
 	private Road road;//may not be used
 	
 	
-	private Lane lane;
-	private Lane lane1;
+	private Lane1 lane1;
+	private Lane2 lane2;
 	
 	
 	private IDisplay display;
@@ -58,10 +58,10 @@ public class Draw_map implements I_Draw_map{
         
         
         
-	    this.lane = new Lane(500, 25, Map_size_y-25/*radius*/, Map_size_y-25, 25/*the width of lane*/, 1000, new Color(71, 73, 76));//will use the arraylist
-	    this.lane1 = new Lane(525, 50, Map_size_y - 50, Map_size_y -50, 25, 1000, new Color(87, 73, 76));//will use the arraylist  
+	    this.lane1 = new Lane1();//will use the arraylist
+	    this.lane2 = new Lane2();//will use the arraylist  
 	    //Point center = new Point(450,25);	
-	    //this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
+	    //this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg", null);
 	    this.driver = driver;	
 	    
 	    
@@ -83,8 +83,6 @@ public class Draw_map implements I_Draw_map{
 		
         this.graphics = (Graphics2D) buffer.getDrawGraphics();
         
-   
-         //this.graphics.setColor(Color.BLACK);
          this.graphics.clearRect(0, 0, 700, 700);
         
 
@@ -106,7 +104,7 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 	
-	private void drawLane(Lane lane)
+	private void drawLane(Lane1 lane)
 	{
 		this.graphics.setColor(lane.getLaneColor());
 		this.graphics.setStroke(new BasicStroke(lane.getline_width()));
@@ -125,12 +123,9 @@ public class Draw_map implements I_Draw_map{
 		
 		
 		this.drawbackground();
-		this.drawLane(lane);
 		this.drawLane(lane1);
-		
+		//this.drawLane(lane2);		
         this.drawVehicle(this.driver.getVehilce());
-    	
-		
 		this.buffer.show();
 	}
 	
