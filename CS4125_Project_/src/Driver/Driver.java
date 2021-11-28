@@ -6,7 +6,7 @@ public class Driver implements Runnable{
 	
 	private String name;
     private  Vehicle vehicle;
-    private int speed =1;
+    private int speed =1   ;
 	
 	
 

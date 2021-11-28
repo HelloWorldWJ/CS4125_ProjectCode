@@ -30,40 +30,38 @@ public class Vehicle {
 	private int current_location_y;
 	private String imagePath;
 	private BufferedImage carImage;
+	private double circle_angle;
+	private double angular_speed;
 	
-//	private int currentCell, vehicleWidth, vehicleHeight, currentLaneId, vehicleId;
-//	private double maxSpeed, currentSpeed, angle;
-//	private Lane track;
-//	private Road road;
-//	private Point position;
-//	private Color color;
-//	private String imagePath;
-//	private I_VehicleState state;
-	
-	
-	public Vehicle() {
-		
-	}
-	
-	
-//	void Set_attribute();
-//	void Update_attribute(v:Vehicle);
-	public Vehicle(double length, double width, double speed, double angle, Point xy, Road road, Lane track, String imagePath) {
+
+	public Vehicle(double length, double width, double angular_speed, double angle, Point xy, Road road, Lane track, String imagePath) {
 //		this.Brand = Brand;
 		this.vehicleLength = length;
 		this.vehicleWidth = width;
-//		this.vehicleWidth = getVehicleWidthRelevantToLaneNum(numLanes);
-//		this.vehicleHeight = getVehicleHeightRelevantToLaneNum(numLanes);
+		this.circle_angle = 0;
 		this.speed = speed;
 		this.angle = angle;
 		this.position = xy;
 		this.road = road;
 		this.track = track;
-//		this.track = road.getLane(currentLaneId);
+		this.angular_speed = angular_speed;
 		this.imagePath = imagePath;
-//		this.current_location_x = current_location_x;
-//		this.current_location_y = current_location_y;
 		this.carImage = createCarImage();
+	}
+	
+	private void Sum_angle()
+	{
+		if(this.circle_angle + this.angular_speed > 360)
+		{
+			this.circle_angle = (this.circle_angle + this.angular_speed) % 360;
+		}
+		else this.circle_angle = this.circle_angle + this.angular_speed;
+	}
+	
+
+	private double Get_sum_angle()
+	{
+		return this.circle_angle;
 	}
 	
 	public Point getPosition(){
@@ -81,6 +79,7 @@ public class Vehicle {
 	public Lane getLane() {
 		return track;
 	}
+	
 	public BufferedImage getCarImage() {
 		return this.carImage;
 	}
@@ -102,7 +101,12 @@ public class Vehicle {
 	}
 	public void move(int speed)
 	{
-		this.position.x = this.position.x-speed;
+		this.Sum_angle();
+		this.position.x = (int)(Math.sin(this.circle_angle) * 303 + 553);
+		System.out.println(this.circle_angle);
+		this.position.y = (int)(Math.cos(this.circle_angle) *  303 + 328);
+		//this.position.x = this.position.x+speed;
+		//this.position.y = this.position.y+speed;
 		//this.position.x = this.position.x+1;
 		
 	}

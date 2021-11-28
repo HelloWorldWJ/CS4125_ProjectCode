@@ -20,12 +20,6 @@ import Driver.DriverFactory.DriverTemper;
 
 import java.awt.BasicStroke;
 
-
-
-
-
-
-
 public class Draw_map implements I_Draw_map{
 	private int index;
 	private int Map_size_x;
@@ -64,8 +58,8 @@ public class Draw_map implements I_Draw_map{
         
         
         
-	    this.lane = new Lane(500, 0, Map_size_y/*radius*/, Map_size_y, 25/*the width of lane*/, 1000, new Color(71, 73, 76));//will use the arraylist
-	    this.lane1 = new Lane(525, 25, Map_size_y - 25, Map_size_y -25, 25, 1000, new Color(87, 73, 76));//will use the arraylist  
+	    this.lane = new Lane(500, 25, Map_size_y-25/*radius*/, Map_size_y-25, 25/*the width of lane*/, 1000, new Color(71, 73, 76));//will use the arraylist
+	    this.lane1 = new Lane(525, 50, Map_size_y - 50, Map_size_y -50, 25, 1000, new Color(87, 73, 76));//will use the arraylist  
 	    //Point center = new Point(450,25);	
 	    //this.vehicle = new VehicleFactory().createVehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
 	    this.driver = driver;	
@@ -98,6 +92,7 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 
+	
 	private void drawVehicle(Vehicle vehicle)
 	{
 		Point pos = driver.getVehilce().getPosition();
@@ -124,8 +119,6 @@ public class Draw_map implements I_Draw_map{
 	private void drawbackground() {
 		this.graphics.drawImage(this.background, 0,0,null);
 	}
-	
-	
 	
 	
 	public void render() {

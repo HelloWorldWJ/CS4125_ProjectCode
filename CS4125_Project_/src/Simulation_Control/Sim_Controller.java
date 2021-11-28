@@ -28,9 +28,10 @@ public class Sim_Controller extends Thread_source{
 		this.map_he = 606; // need change
 		
 		
-		this.center = new Point((1000), (606));
-		this.lane = new Lane(500, 0,606/*radius*/,606, 25/*the width of lane*/, 1000, new Color(71, 73, 76));	
-		this.v = new Vehicle(25, 25, 10, 3, center, road, lane, "yellow.jpg");
+		this.center = new Point((541), (12));
+		this.lane = new Lane(500, 0, 606/*radius*/,606, 25/*the width of lane*/, 1000, new Color(71, 73, 76));	
+		
+		this.v = new Vehicle(20, 20, 0.01, 3, center, road, lane, "yellow.jpg");
 		this.d = new Driver("Tom",v);
 		
 		
