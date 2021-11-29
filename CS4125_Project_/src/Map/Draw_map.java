@@ -14,8 +14,9 @@ import javax.imageio.ImageIO;
 
 import Driver.Driver;
 import Driver.DriverFactory;
+import Vehicle.Fastcar;
 import Vehicle.Vehicle;
-import Vehicle.VehicleFactory;
+import Vehicle.VehicleTypeFactory;
 import Driver.DriverFactory.DriverTemper;
 
 
@@ -31,14 +32,14 @@ public class Draw_map implements I_Draw_map{
 	private BufferedImage background;
 	private final String BACKGROUND_PATH;
 	private Point center;
-	private Driver driver;
+	private ArrayList<Driver>drivers;
 	private Vehicle vehicle;
 	private Lane1 lane1;
 	private Lane2 lane2;
 	private ArrayList<Lane>lanes;
 	
 	
-	public Draw_map(IDisplay idis, double map_wi, double map_he,Driver driver, ArrayList<Lane> lanes)
+	public Draw_map(IDisplay idis, double map_wi, double map_he, ArrayList<Driver>drivers, ArrayList<Lane> lanes)
 	{
 		this.Map_size_x = (int)map_wi;
 		this.Map_size_y = (int)map_he;   			    
@@ -50,7 +51,7 @@ public class Draw_map implements I_Draw_map{
         
 		
         this.lanes = lanes;   
-	    this.driver = driver;		    
+	    this.drivers = drivers;		    
 		this.display = idis;	
 		this.BACKGROUND_PATH = "background.png";
 		this.background =  create_background();
@@ -76,11 +77,12 @@ public class Draw_map implements I_Draw_map{
 
 	private void drawVehicle(Vehicle vehicle)
 	{
-		Point pos = driver.getVehilce().getPosition();
+		
+		Point pos = vehicle.getPosition();
         Point p2 = new Point((int)(pos.x - (vehicle.getVehicleWidth() / 2)), (int)(pos.y - (vehicle.getVehicleLength() / 2)));
 
         AffineTransform at = new AffineTransform();
-        at.rotate(vehicle.getAngle(), p2.x + (vehicle.getVehicleWidth() / 2), p2.y + (vehicle.getVehicleLength() / 2));
+        at.rotate(vehicle.getAngle(), p2.x + (vehicle.getVehicleWidth() / 2), p2.y +( vehicle.getVehicleLength() / 2));
         at.translate(p2.x + (vehicle.getVehicleWidth() / 8), p2.y + (vehicle.getVehicleWidth() / 4));
 
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
@@ -108,8 +110,12 @@ public class Draw_map implements I_Draw_map{
 		for (Lane l : this.lanes) 
 		{
             this.drawLane(l);
-        }	
-        this.drawVehicle(this.driver.getVehilce());
+        }
+		for (Driver driver : this.drivers)
+		{
+			this.drawVehicle(driver.getVehilce());
+		}
+        //this.drawVehicle(this.driver.getVehilce());
 		this.buffer.show();
 	}
 	

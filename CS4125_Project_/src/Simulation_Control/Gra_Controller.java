@@ -16,12 +16,12 @@ public class Gra_Controller extends Thread_source{
 	
 	
 	
-	public Gra_Controller(double ui_wi,double ui_he,Driver driver, ArrayList<Lane> lanes)
+	public Gra_Controller(double ui_wi, double ui_he, ArrayList<Driver>drivers, ArrayList<Lane> lanes)
 	{
 	this.map_he = ui_he;
 	this.map_wi = ui_wi;
 	this.initDisplay();
-	this.d_map = new Draw_map(idisplay, map_wi, map_he, driver, lanes);
+	this.d_map = new Draw_map(idisplay, map_wi, map_he, drivers, lanes);
 	System.out.println("Gra_Control map_width "+map_wi+" Map_height "+map_he);
 	
 	}
@@ -45,7 +45,7 @@ public class Gra_Controller extends Thread_source{
 	public void initDisplay()
 	{
 		
-		idisplay = new Display(map_wi,map_he );
+		idisplay = new Display(map_wi, map_he );
 		idisplay.createDisplay();
 		
 	}

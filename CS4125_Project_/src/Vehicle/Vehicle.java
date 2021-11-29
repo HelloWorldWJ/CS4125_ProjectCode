@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Map.Lane1;
+import Map.Lane;
 
 import SetElement.SetElement;
 
@@ -19,11 +19,9 @@ public class Vehicle {
 	public enum Brand{
 		Benz,Toyota,Nissan,Audi,Ford
 	}
-	private double vehicleLength;
-	private double vehicleWidth;
-	private Lane1 track;
-	
-	private double speed, angle;
+
+	private Lane track;
+	private double  angle;
 	private Point position;
 	private int current_location_x;
 	private int current_location_y;
@@ -31,20 +29,21 @@ public class Vehicle {
 	private BufferedImage carImage;
 	private double circle_angle;
 	private double angular_speed;
-	
+	private double vehicleLength;
+	private double vehicleWidth;
+	private VehicleType vt;
 
-	public Vehicle(double length, double width, double angular_speed, double angle, Point xy,  Lane1 track, String imagePath) {
+	public Vehicle(double angle, Point xy,  Lane track, VehicleType vt) {
 //		this.Brand = Brand;
-		this.vehicleLength = length;
-		this.vehicleWidth = width;
+		this.vt = vt;
+		this.vehicleLength = vt.getVehicleLength();
+		this.vehicleWidth = vt.getVehicleWidth();
+		this.angular_speed = vt.getspeed();
+		this.imagePath = vt.getVehicleImagePath();
 		this.circle_angle = 0;
-		this.speed = speed;
 		this.angle = angle;
 		this.position = xy;
-
 		this.track = track;
-		this.angular_speed = angular_speed;
-		this.imagePath = imagePath;
 		this.carImage = createCarImage();
 	}
 	
@@ -70,10 +69,8 @@ public class Vehicle {
 	public double getAngle(){
 		return angle;
 	}
-	
 
-
-	public Lane1 getLane() {
+	public Lane getLane() {
 		return track;
 	}
 	
@@ -85,17 +82,11 @@ public class Vehicle {
 		return this.imagePath;
 	}
 	
-	public double getVehicleLength() {
-		return vehicleLength;
+	public double getSpeed() 
+	{
+		return this.angular_speed;
 	}
 	
-	public double getVehicleWidth() {
-		return vehicleWidth;
-	}
-	
-	public double getSpeed() {
-		return speed;
-	}
 	public void move(int speed)
 	{
 		this.Sum_angle();
@@ -103,7 +94,19 @@ public class Vehicle {
 		System.out.println(this.circle_angle);
 		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  303 - 20);
 	}
-	private BufferedImage createCarImage() {
+	
+	
+	public double getVehicleLength() 
+	{
+		return this.vehicleLength;
+	}
+	
+	public double getVehicleWidth() 
+	{
+		return this.vehicleWidth;
+	}
+	
+	public BufferedImage createCarImage() {
 		try {
             BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));
         	BufferedImage resized_car_image = new BufferedImage((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), BufferedImage.TYPE_INT_ARGB);
