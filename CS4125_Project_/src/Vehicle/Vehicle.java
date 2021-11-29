@@ -90,7 +90,7 @@ public class Vehicle {
 	public void move(int speed)
 	{
 		this.Sum_angle();
-		System.out.println(this.track.get_Radius());
+		//System.out.println(this.track.get_Radius());
 		this.position.x = (int)(Math.sin(Math.PI/180 *this.circle_angle) * this.track.get_Radius() + 553 - 12);
 		//System.out.println(this.circle_angle);
 		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  this.track.get_Radius() - 20);
