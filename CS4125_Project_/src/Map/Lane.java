@@ -20,5 +20,7 @@ public abstract class Lane {
 	public abstract Color getLaneColor();
 	
 	public abstract Point get_Position(int cell_index);
+	
+	public abstract int get_Radius();
 
 }

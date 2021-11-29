@@ -53,4 +53,10 @@ public class Lane3 extends Lane{
 		return null;
 	}
 
+	@Override
+	public int get_Radius() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

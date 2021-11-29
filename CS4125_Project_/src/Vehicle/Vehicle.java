@@ -90,9 +90,10 @@ public class Vehicle {
 	public void move(int speed)
 	{
 		this.Sum_angle();
-		this.position.x = (int)(Math.sin(Math.PI/180 *this.circle_angle) * 303 + 553 - 12);
-		System.out.println(this.circle_angle);
-		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  303 - 20);
+		System.out.println(this.track.get_Radius());
+		this.position.x = (int)(Math.sin(Math.PI/180 *this.circle_angle) * this.track.get_Radius() + 553 - 12);
+		//System.out.println(this.circle_angle);
+		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  this.track.get_Radius() - 20);
 	}
 	
 	
@@ -106,7 +107,8 @@ public class Vehicle {
 		return this.vehicleWidth;
 	}
 	
-	public BufferedImage createCarImage() {
+	public BufferedImage createCarImage() 
+	{
 		try {
             BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));
         	BufferedImage resized_car_image = new BufferedImage((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), BufferedImage.TYPE_INT_ARGB);

@@ -10,6 +10,7 @@ public class Lane1 extends Lane{
 	private Color lane_Color;
 	private double angle_per_cell;// every single space has a specified angle
 	private int number_of_cells;
+	private int radius;
 	
 	
 	public Lane1()
@@ -24,6 +25,8 @@ public class Lane1 extends Lane{
 		this.number_of_cells = 1000;
 		this.angle_per_cell = 360/this.number_of_cells;
 		this.lane_Color =  new Color(71, 73, 76);
+		this.radius = this.wi/2;//this.wi/2;
+		
 		
 
 	}
@@ -62,6 +65,11 @@ public class Lane1 extends Lane{
 		double angele = this.angle_per_cell*(cell_index % this.number_of_cells);
 		return p;
 		
+	}
+	@Override
+	public int get_Radius() {
+		// TODO Auto-generated method stub
+		return radius;
 	}
 
 }
