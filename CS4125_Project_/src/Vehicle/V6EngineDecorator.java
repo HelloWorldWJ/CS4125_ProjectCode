@@ -1,13 +1,12 @@
 package Vehicle;
 
-public class V6EngineDecorator extends EngineDecorator{
+public class V6EngineDecorator extends VehicleEngineDecorator{
 	
 	private double speed;
 	private double vehiclelength;
 	private double vehiclewidth;
 	private String vehiclepath;
 	private double acceleration;
-	
 	public V6EngineDecorator(VehicleType decoratedV) {
 		super(decoratedV);
 		setAcceleration();
@@ -16,25 +15,25 @@ public class V6EngineDecorator extends EngineDecorator{
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub
-		return speed;
+		return super.decoratedVehicleType.getspeed();
 	}
 
 	
 	public double getVehicleLength() {
 		// TODO Auto-generated method stub
-		return vehiclelength;
+		return super.decoratedVehicleType.getVehicleLength();
 	}
 
 	
 	public double getVehicleWidth() {
 		// TODO Auto-generated method stub
-		return vehiclewidth;
+		return super.decoratedVehicleType.getVehicleWidth();
 	}
 
 	
 	public String getVehicleImagePath() {
 		// TODO Auto-generated method stub
-		return vehiclepath;
+		return super.decoratedVehicleType.getVehicleImagePath();
 	}
 
 	public double getacceleration() {

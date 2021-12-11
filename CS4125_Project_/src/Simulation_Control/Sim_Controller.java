@@ -7,8 +7,9 @@ import Map.Lane2;
 import Map.Lane3;
 
 import Driver.Driver;
-
+import Vehicle.V6EngineDecorator;
 import Vehicle.Vehicle;
+import Vehicle.VehicleEngineDecorator;
 import Vehicle.VehicleType;
 import Vehicle.VehicleTypeFactory;
 
@@ -42,13 +43,15 @@ public class Sim_Controller extends Thread_source{
 		VehicleTypeFactory v_fac = new VehicleTypeFactory();
 		VehicleType fastcar = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Fastcar);	
 		VehicleType slowcar = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Slowcar);
-		
+		VehicleEngineDecorator v6EngineCar1 = new V6EngineDecorator(fastcar);
+		VehicleEngineDecorator v6EngineCar2 = new V6EngineDecorator(slowcar);
 		
 		this.Firstcar_loc = new Point((541), (12));	
-		this.Secondcar_loc = new Point((541),(100));		
-		Driver d1 = new Driver("Tom", new Vehicle( 3, this.Firstcar_loc, this.lanes.get(0), fastcar));
+		this.Secondcar_loc = new Point((541),(100));
+		
+		Driver d1 = new Driver("Tom", new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v6EngineCar1));
 		this.drivers.add(d1);
-		Driver d2 = new Driver("Sam", new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), slowcar));
+		Driver d2 = new Driver("Sam", new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar2));
 		this.drivers.add(d2);
 		
 	}

@@ -31,24 +31,25 @@ public class Vehicle {
 	private double angular_speed;
 	private double vehicleLength;
 	private double vehicleWidth;
-	private VehicleType vt;
-	private EngineDecorator v6EngineCar;//---------
+	//private VehicleType vt;
+	private VehicleEngineDecorator veEngineDec;
 	private double acceleration;
 
-	public Vehicle(double angle, Point xy,  Lane track, VehicleType vt) {
+
+	public Vehicle(double angle, Point xy,  Lane track, VehicleEngineDecorator veEngineDec) {
 //		this.Brand = Brand;
-		this.vt = vt;
-		this.vehicleLength = vt.getVehicleLength();
-		this.vehicleWidth = vt.getVehicleWidth();
-		this.angular_speed = vt.getspeed();
-		this.imagePath = vt.getVehicleImagePath();
+		this.veEngineDec = veEngineDec;
+		this.vehicleLength = veEngineDec.getVehicleLength();
+		this.vehicleWidth = veEngineDec.getVehicleWidth();
+		this.angular_speed = veEngineDec.getspeed();
+		this.imagePath = veEngineDec.getVehicleImagePath();
 		this.circle_angle = 0;
 		this.angle = angle;
 		this.position = xy;
 		this.track = track;
 		this.carImage = createCarImage();
 		
-		this.v6EngineCar = new V6EngineDecorator(vt);//----------
+		
 		
 	}
 	
