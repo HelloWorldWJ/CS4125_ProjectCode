@@ -40,6 +40,7 @@ public class Fastcar implements VehicleType{
 		// TODO Auto-generated method stub
 		return vehiclepath;
 	}
+
 	
 
 

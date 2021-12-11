@@ -32,6 +32,8 @@ public class Vehicle {
 	private double vehicleLength;
 	private double vehicleWidth;
 	private VehicleType vt;
+	private EngineDecorator v6EngineCar;//---------
+	private double acceleration;
 
 	public Vehicle(double angle, Point xy,  Lane track, VehicleType vt) {
 //		this.Brand = Brand;
@@ -45,10 +47,19 @@ public class Vehicle {
 		this.position = xy;
 		this.track = track;
 		this.carImage = createCarImage();
+		
+		this.v6EngineCar = new V6EngineDecorator(vt);//----------
+		
+	}
+	
+	private void speed_increase() {
+		this.angular_speed = this.angular_speed + this.acceleration;
 	}
 	
 	private void Sum_angle()
 	{
+		speed_increase();
+		
 		if(this.circle_angle + this.angular_speed > 360)
 		{
 			this.circle_angle = (this.circle_angle + this.angular_speed) % 360;
