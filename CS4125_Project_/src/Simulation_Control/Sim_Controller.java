@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import Map.Lane;
 import Map.Lane1;
 import Map.Lane2;
+import Map.Lane3;
 
 import Driver.Driver;
 
@@ -60,8 +61,8 @@ public class Sim_Controller extends Thread_source{
 		this.lanes.add(lane1);
 		Lane2 lane2 = new Lane2();//will use the arraylist  
 		this.lanes.add(lane2);
-//		Lane3 lane3 = new Lane3();
-//		this.lanes.add(lane3);
+		Lane3 lane3 = new Lane3();
+		this.lanes.add(lane3);
 		 
 	}
 	

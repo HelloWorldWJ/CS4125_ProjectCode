@@ -19,8 +19,8 @@ public class Lane1 extends Lane{
 		this.center = new Point();
 		center.x = 500;
 		center.y = 25;
-		this.wi = 581;
-		this.he = 581;
+		this.wi = 556;
+		this.he = 556;
 		this.lane_width = 25;
 		this.number_of_cells = 1000;
 		this.angle_per_cell = 360/this.number_of_cells;

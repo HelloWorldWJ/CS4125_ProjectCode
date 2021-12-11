@@ -16,11 +16,11 @@ public class Lane2 extends Lane{
 	public Lane2()
 	{
 		this.center = new Point();
-		center.x = 525;
-		center.y = 50;
-		this.wi = 556;
-		this.he = 556;
-		this.lane_width = 25;
+		center.x = 550;
+		center.y = 75;
+		this.wi = 506;
+		this.he = 506;
+		this.lane_width = 26;
 		this.number_of_cells = 1000;
 		this.angle_per_cell = 360/this.number_of_cells;
 		this.lane_Color =  new Color(87, 73, 76);
