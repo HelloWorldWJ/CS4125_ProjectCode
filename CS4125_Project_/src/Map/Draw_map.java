@@ -48,8 +48,10 @@ public class Draw_map implements I_Draw_map{
 	    this.center = new Point((Map_size_x), (Map_size_y));
 		int currentX = (int) center.getX();
         int currentY = (int) center.getY();
-		System.out.println("Draw_map "+Map_size_x+" "+Map_size_y);
-        System.out.println("Draw_map class ScreenX: "+currentX+" ScreenY "+currentY);
+		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
+		System.out.println("----------------------------");
+		System.out.println("(Vehicle--DriverTemper--Speed)");
+//        System.out.println("Draw_map class ScreenX: "+currentX+" ScreenY "+currentY);
         
 		
         this.lanes = lanes;   

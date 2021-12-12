@@ -22,7 +22,7 @@ public class Gra_Controller extends Thread_source{
 	this.map_wi = ui_wi;
 	this.initDisplay();
 	this.d_map = new Draw_map(idisplay, map_wi, map_he, drivers, lanes);
-	System.out.println("Gra_Control map_width "+map_wi+" Map_height "+map_he);
+//	System.out.println("Gra_Control map_width "+map_wi+" Map_height "+map_he);
 	
 	}
 	

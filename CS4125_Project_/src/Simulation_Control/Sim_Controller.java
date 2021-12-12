@@ -35,7 +35,8 @@ public class Sim_Controller extends Thread_source{
 	{
 		
 		this.drivers = new ArrayList<>();
-		System.out.println("Sim_Control "+map_wi);
+		System.out.println("[Sim_Control]");
+		System.out.println("----------------------------");
 		this.map_wi = 1000;
 		this.map_he = 606; // need change
 		this.init_lanes();
