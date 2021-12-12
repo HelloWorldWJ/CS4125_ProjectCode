@@ -17,7 +17,7 @@ import SetElement.SetElement;
 public class Vehicle {
 	
 //	public enum Brand{
-//		Benz,Toyota,Nissan,Audi,Ford
+//		Benz,Toyota,Nissan,Audi,Ford,Mazda
 //	}
 
 	private Lane track;

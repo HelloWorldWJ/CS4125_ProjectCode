@@ -8,6 +8,7 @@ public class DriverFactory  {
 		NORMAL,
 		IRRITABLE
 	}
+	
 	public Driver createDriver(DriverTemper temper, Vehicle vehicle, String name) {
 		switch(temper) {
 			case NORMAL:{

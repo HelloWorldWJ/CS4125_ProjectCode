@@ -4,6 +4,8 @@ import Vehicle.Vehicle;
 
 public class NormalDriver extends Driver{
 	
+	private String DriverTemperType;
+	
 	private double max_limitedSpeed;
 	private double min_limitedSpeed;
 	private double currentspeed;
@@ -12,12 +14,17 @@ public class NormalDriver extends Driver{
 
 	public NormalDriver(String name, Vehicle vehicle) {
 		super(name, vehicle);
+		this.DriverTemperType = "Normal";
 		this.max_limitedSpeed = 2;
 		this.min_limitedSpeed = 1;
-		this.Drive();
+		//this.Drive();
 		
 		this.isDecelerate = false;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public String getDriverTemperType() {
+		return this.DriverTemperType;
 	}
 	
 	public void Drive() {
@@ -36,7 +43,7 @@ public class NormalDriver extends Driver{
 	}
 	
 	public void pri() {
-		System.out.println(vehicle.getCarName() + "--" + vehicle.getSpeed());
+		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
 	}
 
 }

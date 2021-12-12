@@ -10,7 +10,7 @@ public class VehicleTypeFactory {
 	{
 		Ferrari,
 		Benz,
-		Mediumcar
+		Mazda
 	};
 
 	public VehicleType createVehicle(Vehicle_Type type) 
@@ -23,6 +23,9 @@ public class VehicleTypeFactory {
 			
 		case Benz:
 			return new Benz();
+		
+		case Mazda:
+			return new Mazda();
 			
 		default:
 			return null;

@@ -8,6 +8,8 @@ import Vehicle.Vehicle;
 
 public class IrritableDriver extends Driver {
 	
+	private String DriverTemperType;
+	
 	private double max_limitedSpeed;
 	private double min_limitedSpeed;
 	private double currentspeed;
@@ -17,12 +19,17 @@ public class IrritableDriver extends Driver {
 
 	public IrritableDriver(String name, Vehicle vehicle) {
 		super(name, vehicle);
+		this.DriverTemperType = "Irritable";
 		this.max_limitedSpeed = 4;
 		this.min_limitedSpeed = 2;
-		this.Drive();
+		//this.Drive();
 		
 		this.isDecelerate = false;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public String getDriverTemperType() {
+		return this.DriverTemperType;
 	}
 	
 	public void Drive() {
@@ -42,7 +49,7 @@ public class IrritableDriver extends Driver {
 	}
 	
 	public void pri() {
-		System.out.println(vehicle.getCarName() + "--" + vehicle.getSpeed());
+		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
 	}
 
 }
