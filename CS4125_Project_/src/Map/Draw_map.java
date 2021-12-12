@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import Driver.Driver;
+import Driver.IrritableDriver;
+import Driver.NormalDriver;
 import Driver.DriverFactory;
-import Vehicle.Fastcar;
+import Vehicle.Ferrari;
 import Vehicle.Vehicle;
 import Vehicle.VehicleTypeFactory;
 import Driver.DriverFactory.DriverTemper;
@@ -114,6 +116,22 @@ public class Draw_map implements I_Draw_map{
 		for (Driver driver : this.drivers)
 		{
 			this.drawVehicle(driver.getVehilce());
+			//System.out.println(driver.getClass().toString());
+			
+			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
+				//System.out.println("1");
+				NormalDriver NormalDriver = (NormalDriver)driver;
+				NormalDriver.Drive();
+				NormalDriver.pri();
+			}
+			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) {
+				//System.out.println("2");
+				IrritableDriver IrritableDriver = (IrritableDriver)driver;
+				IrritableDriver.Drive();
+				IrritableDriver.pri();
+			}
+			//driver.limitSpeed();
+			//driver.pri();
 		}
         //this.drawVehicle(this.driver.getVehilce());
 		this.buffer.show();

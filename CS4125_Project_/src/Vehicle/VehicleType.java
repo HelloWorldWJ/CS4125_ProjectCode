@@ -5,5 +5,6 @@ public interface VehicleType {
 	double getVehicleLength(); 
 	double getVehicleWidth();
 	String getVehicleImagePath();
+	String getCarName();
 
 }

@@ -5,8 +5,8 @@ import Vehicle.Vehicle;
 public class Driver implements Runnable{
 	
 	private String name;
-    private  Vehicle vehicle;
-    private int speed =1   ;
+    protected Vehicle vehicle;
+    private int speed = 1;
 	
 	
 
@@ -43,6 +43,13 @@ public class Driver implements Runnable{
 		
 	}
 	
+	public void pri() {
+		
+	}
 	
+	public void Drive() {
+		
+	}
+
 
 }

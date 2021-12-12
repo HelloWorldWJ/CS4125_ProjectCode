@@ -7,4 +7,7 @@ public abstract class VehicleEngineDecorator implements VehicleType{
 		this.decoratedVehicleType = decoratedVehicleType;
 	
 	}
+	
+	public abstract double getAcceleration();
+	
 }

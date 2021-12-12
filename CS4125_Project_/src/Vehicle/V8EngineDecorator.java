@@ -1,6 +1,6 @@
 package Vehicle;
 
-public class V6EngineDecorator extends VehicleEngineDecorator{
+public class V8EngineDecorator extends VehicleEngineDecorator{
 	
 	private double speed;
 	private double vehiclelength;
@@ -8,7 +8,7 @@ public class V6EngineDecorator extends VehicleEngineDecorator{
 	private String vehiclepath;
 	private double acceleration;
 	
-	public V6EngineDecorator(VehicleType decoratedV) {
+	public V8EngineDecorator(VehicleType decoratedV) {
 		super(decoratedV);
 		setAcceleration();
 	}
@@ -43,7 +43,7 @@ public class V6EngineDecorator extends VehicleEngineDecorator{
 	}
 	
 	private void setAcceleration() {
-		this.acceleration = 0.003;
+		this.acceleration = 0.008;
 	}
 	
 	public double getAcceleration() {

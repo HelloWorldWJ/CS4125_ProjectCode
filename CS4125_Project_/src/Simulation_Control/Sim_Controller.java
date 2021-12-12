@@ -7,7 +7,11 @@ import Map.Lane2;
 import Map.Lane3;
 
 import Driver.Driver;
+import Driver.DriverFactory;
+import Driver.NormalDriver;
+import Driver.IrritableDriver;
 import Vehicle.V6EngineDecorator;
+import Vehicle.V8EngineDecorator;
 import Vehicle.Vehicle;
 import Vehicle.VehicleEngineDecorator;
 import Vehicle.VehicleType;
@@ -34,25 +38,32 @@ public class Sim_Controller extends Thread_source{
 		this.map_he = 606; // need change
 		this.init_lanes();
 		this.create_Driver();
-		this.graphics = new Gra_Controller(this.map_wi, this.map_he, drivers, this.lanes); // may use the factory method
+		this.graphics = new Gra_Controller(this.map_wi, this.map_he, drivers, this.lanes); 
 		
 	}
 	
 	public void create_Driver()
 	{
 		VehicleTypeFactory v_fac = new VehicleTypeFactory();
-		VehicleType fastcar = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Fastcar);	
-		VehicleType slowcar = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Slowcar);
-		VehicleEngineDecorator v6EngineCar1 = new V6EngineDecorator(fastcar);
-		VehicleEngineDecorator v6EngineCar2 = new V6EngineDecorator(slowcar);
+		VehicleType Ferrari = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Ferrari);	
+		VehicleType Benz = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Benz);
+		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);
+		VehicleEngineDecorator v6EngineCar = new V6EngineDecorator(Benz);
 		
 		this.Firstcar_loc = new Point((541), (12));	
 		this.Secondcar_loc = new Point((541),(100));
 		
-		Driver d1 = new Driver("Tom", new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v6EngineCar1));
-		this.drivers.add(d1);
-		Driver d2 = new Driver("Sam", new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar2));
-		this.drivers.add(d2);
+		DriverFactory d_fac = new DriverFactory();
+		Driver IrritableDr = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "Tom");
+		Driver NormalDr = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam");
+
+//		NormalDriver NormalDriver = (NormalDriver)NormalDr;
+//		IrritableDriver IrritableDriver = (IrritableDriver)IrritableDr;
+		
+		//Driver d1 = new Driver("Tom", new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar));
+		this.drivers.add(NormalDr);
+		//Driver d2 = new Driver("Sam", new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar));
+		this.drivers.add(IrritableDr);
 		
 	}
 	

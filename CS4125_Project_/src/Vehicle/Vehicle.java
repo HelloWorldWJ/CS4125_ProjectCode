@@ -16,12 +16,12 @@ import SetElement.SetElement;
 
 public class Vehicle {
 	
-	public enum Brand{
-		Benz,Toyota,Nissan,Audi,Ford
-	}
+//	public enum Brand{
+//		Benz,Toyota,Nissan,Audi,Ford
+//	}
 
 	private Lane track;
-	private double  angle;
+	private double angle;
 	private Point position;
 	private int current_location_x;
 	private int current_location_y;
@@ -49,17 +49,26 @@ public class Vehicle {
 		this.track = track;
 		this.carImage = createCarImage();
 		
-		
+		this.acceleration = veEngineDec.getAcceleration();
 		
 	}
 	
-	private void speed_increase() {
+	public void speed_increase() {
 		this.angular_speed = this.angular_speed + this.acceleration;
+	}
+	
+	public void speed_decrease() {
+		this.angular_speed = this.angular_speed - 0.001;
+	}
+	
+	
+	private VehicleEngineDecorator getVehicleEngineDecorator() {
+		return this.veEngineDec;
 	}
 	
 	private void Sum_angle()
 	{
-		speed_increase();
+		//speed_increase();
 		
 		if(this.circle_angle + this.angular_speed > 360)
 		{
@@ -72,6 +81,10 @@ public class Vehicle {
 	private double Get_sum_angle()
 	{
 		return this.circle_angle;
+	}
+	
+	public String getCarName() {
+		return this.veEngineDec.getCarName();
 	}
 	
 	public Point getPosition(){

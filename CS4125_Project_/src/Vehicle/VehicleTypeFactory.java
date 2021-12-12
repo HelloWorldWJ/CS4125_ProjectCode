@@ -8,8 +8,8 @@ import Map.Lane1;
 public class VehicleTypeFactory {
 	public static enum Vehicle_Type
 	{
-		Fastcar,
-		Slowcar,
+		Ferrari,
+		Benz,
 		Mediumcar
 	};
 
@@ -18,11 +18,11 @@ public class VehicleTypeFactory {
 			
 		switch(type)
 		{
-		case Fastcar:
-			return new Fastcar();
+		case Ferrari:
+			return new Ferrari();
 			
-		case Slowcar:
-			return new Slowcar();
+		case Benz:
+			return new Benz();
 			
 		default:
 			return null;
