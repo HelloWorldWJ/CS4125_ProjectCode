@@ -1,6 +1,6 @@
 package Vehicle;
 
-public class Benz implements VehicleType{
+public class Santana implements VehicleType{
 
 	private double speed;
 	private double vehiclelength;
@@ -8,13 +8,13 @@ public class Benz implements VehicleType{
 	private String vehiclepath;
 	private String CarName;
 	
-	public Benz()
+	public Santana()
 	{
-		this.speed = 0.5;
+		this.speed = 0.2;
 		this.vehiclelength = 20;
 		this.vehiclewidth = 20;
 		this.vehiclepath = "slowcar.png";//
-		this.CarName = "Benz";
+		this.CarName = "Santana";
 	}
 	@Override
 	public double getspeed() {

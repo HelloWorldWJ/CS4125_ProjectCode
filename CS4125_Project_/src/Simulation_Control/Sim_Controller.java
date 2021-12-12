@@ -5,13 +5,14 @@ import Map.Lane;
 import Map.Lane1;
 import Map.Lane2;
 import Map.Lane3;
-
+import Map.Lane4;
 import Driver.Driver;
 import Driver.DriverFactory;
 import Driver.NormalDriver;
 import Driver.IrritableDriver;
 import Vehicle.V6EngineDecorator;
 import Vehicle.V8EngineDecorator;
+import Vehicle.V3EngineDecorator;
 import Vehicle.V4EngineDecorator;
 import Vehicle.Vehicle;
 import Vehicle.VehicleEngineDecorator;
@@ -30,6 +31,7 @@ public class Sim_Controller extends Thread_source{
 	private Point Firstcar_loc;
 	private Point Secondcar_loc;
 	private Point Thirdcar_loc;
+	private Point Fourthcar_loc;
 	
 	public Sim_Controller()
 	{
@@ -51,15 +53,18 @@ public class Sim_Controller extends Thread_source{
 		VehicleType Ferrari = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Ferrari);	
 		VehicleType Benz = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Benz);
 		VehicleType Mazda = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Mazda);
+		VehicleType Santana = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Santana);
 		
 		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);
 		VehicleEngineDecorator v6EngineCar = new V6EngineDecorator(Benz);
 		VehicleEngineDecorator v4EngineCar = new V4EngineDecorator(Mazda);
+		VehicleEngineDecorator v3EngineCar = new V3EngineDecorator(Santana);
 		
 		
 		this.Firstcar_loc = new Point((541), (12));	
 		this.Secondcar_loc = new Point((541),(100));
 		this.Thirdcar_loc = new Point((541),(188));
+		this.Fourthcar_loc = new Point((541),(276));
 		
 		
 		DriverFactory d_fac = new DriverFactory();
@@ -92,6 +97,15 @@ public class Sim_Controller extends Thread_source{
 			Driver Drive3 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Thirdcar_loc, this.lanes.get(2), v4EngineCar), "Tom");
 			this.drivers.add(Drive3);
 		}
+		DriverTemperJudge = (int)(Math.random()*2);
+		if(DriverTemperJudge == 0) {
+			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack");
+			this.drivers.add(Drive4);
+		}
+		else if(DriverTemperJudge == 1) {
+			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack");
+			this.drivers.add(Drive4);
+		}
 		
 //		Driver IrritableDr = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "J.J");
 //		Driver NormalDr = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam");
@@ -117,6 +131,8 @@ public class Sim_Controller extends Thread_source{
 		this.lanes.add(lane2);
 		Lane3 lane3 = new Lane3();
 		this.lanes.add(lane3);
+		Lane4 lane4 = new Lane4();
+		this.lanes.add(lane4);
 		 
 	}
 	

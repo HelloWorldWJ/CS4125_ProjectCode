@@ -14,7 +14,7 @@ public class Ferrari implements VehicleType{
 		this.speed = 1;
 		this.vehiclelength = 20;
 		this.vehiclewidth = 20;
-		this.vehiclepath = "fastcar.png";
+		this.vehiclepath = "fastcar.png";//
 		this.CarName = "Ferrari";
 		
 	}
