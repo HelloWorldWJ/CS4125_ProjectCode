@@ -102,15 +102,15 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void draw_updateinfo_in_all_tracks(double speed, String drivername, int height)
+	private void draw_updateinfo_in_all_tracks(double speed, String drivername, String carName, int height)
 	{
 
 		String speed_str = "" + speed;
 		//System.out.println(speed_str);
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
-		this.graphics.drawString(drivername + "  " + speed_str +" km/h", 0, height);
-	
+		this.graphics.drawString(drivername + "                  " + carName + "        " + speed_str + "  " + " km/h", 0, height);
+	 
 	}
 	
 	
@@ -156,9 +156,19 @@ public class Draw_map implements I_Draw_map{
 
 		}	
 		
+		this.drawTitle();
 		Observe_Distribute(drivers);
+		
 		this.buffer.show();
     }
+	
+	private void drawTitle()
+	{
+		this.graphics.setColor(Color.RED);
+		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
+		this.graphics.drawString("DriverName" + "--" + "CarName" + "--" + "Speed", 0, 490);
+		
+	}
 	
 	private void Observe_Distribute(ArrayList<Driver>ds)
 	{
@@ -174,12 +184,19 @@ public class Draw_map implements I_Draw_map{
 		driverNames.add(ds.get(2).getName());
 		driverNames.add(ds.get(3).getName());
 		
+		ArrayList<String>carNames = new ArrayList<>();
+		carNames.add(ds.get(0).getVehilce().getCarName());
+		carNames.add(ds.get(1).getVehilce().getCarName());
+		carNames.add(ds.get(2).getVehilce().getCarName());
+		carNames.add(ds.get(3).getVehilce().getCarName());
 		
-		this.m.set_info(driverNames,speeds);	
-        this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), 510);
-        this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), 530);
-        this.draw_updateinfo_in_all_tracks(this.t3.Track3_speed(), this.t3.Track3_drivernames(), 550);
-        this.draw_updateinfo_in_all_tracks(this.t4.Track4_speed(), this.t4.Track4_drivernames(), 570);
+		
+		this.m.set_info(driverNames, speeds, carNames);	
+		
+        this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), this.t1.Track1_carnames(), 510);
+        this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), this.t2.Track2_carnames(), 530);
+        this.draw_updateinfo_in_all_tracks(this.t3.Track3_speed(), this.t3.Track3_drivernames(), this.t3.Track3_carnames(), 550);
+        this.draw_updateinfo_in_all_tracks(this.t4.Track4_speed(), this.t4.Track4_drivernames(), this.t4.Track4_carnames(), 570);
 	}
 
 	

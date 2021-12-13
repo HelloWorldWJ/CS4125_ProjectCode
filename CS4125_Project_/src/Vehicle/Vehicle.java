@@ -27,9 +27,9 @@ public class Vehicle {
 	private double angular_speed;
 	private double vehicleLength;
 	private double vehicleWidth;
-	//private VehicleType vt;
 	private VehicleEngineDecorator veEngineDec;
 	private double acceleration;
+
 	
 	public Vehicle() {
 		
@@ -42,7 +42,7 @@ public class Vehicle {
 
 
 	public Vehicle(double angle, Point xy, Lane track, VehicleEngineDecorator veEngineDec) {
-//		this.Brand = Brand;
+
 		this.veEngineDec = veEngineDec;
 		this.vehicleLength = veEngineDec.getVehicleLength();
 		this.vehicleWidth = veEngineDec.getVehicleWidth();
@@ -57,7 +57,7 @@ public class Vehicle {
 		this.acceleration = veEngineDec.getAcceleration();
 		
 	}
-	
+
 	public void speed_increase() {
 		this.angular_speed = this.angular_speed + this.acceleration;
 	}
@@ -114,7 +114,7 @@ public class Vehicle {
 	
 	public double getSpeed() 
 	{
-		return this.angular_speed;
+		return this.angular_speed ;
 	}
 	
 	public void move()

@@ -4,6 +4,7 @@ public class Speed_Monitor implements Subject{
 	
 	ArrayList<Double>speeds_in_all_tracks;
 	ArrayList<String>drivernames_in_all_tracks;
+	ArrayList<String>carNames_in_all_tracks;
 
 	
 	private ArrayList<Observer>observers;
@@ -33,16 +34,17 @@ public class Speed_Monitor implements Subject{
 		for(int i = 0; i < this.observers.size(); i++)
 		{
 			Observer o = (Observer)this.observers.get(i);
-			o.update(this.speeds_in_all_tracks, this.drivernames_in_all_tracks);
+			o.update(this.speeds_in_all_tracks, this.drivernames_in_all_tracks, this.carNames_in_all_tracks);
 		}
 		
 	}
 	
 
-	public void set_info(ArrayList<String>drivernames, ArrayList<Double>speeds)
+	public void set_info(ArrayList<String>drivernames, ArrayList<Double>speeds, ArrayList<String>carNames)
 	{
 		this.speeds_in_all_tracks = speeds;
 		this.drivernames_in_all_tracks  = drivernames;
+		this.carNames_in_all_tracks = carNames;
 		this.infoChanged();		
 	}
 

@@ -7,6 +7,7 @@ public class Track1_Ob implements Observer{
     private Subject S_monitor;
     ArrayList<Double>speeds;
     ArrayList<String>drivernames;
+    ArrayList<String>carNames;
 	public Track1_Ob(Subject Speed_monitor)
 	{
 		this.S_monitor = S_monitor;
@@ -14,9 +15,10 @@ public class Track1_Ob implements Observer{
 		
 	}
 	@Override
-	public void update(ArrayList<Double>speeds, ArrayList<String>drivernames) {
+	public void update(ArrayList<Double>speeds, ArrayList<String>drivernames, ArrayList<String>carNames) {
 		this.speeds = speeds;
 		this.drivernames = drivernames;
+		this.carNames = carNames;
 
 	
 	}
@@ -28,6 +30,10 @@ public class Track1_Ob implements Observer{
 	public String Track1_drivernames()
 	{
 		return this.drivernames.get(0);
+	}
+	public String Track1_carnames()
+	{
+		return this.carNames.get(0);
 	}
 
 }
