@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 
 import Map.Lane;
 
-import SetElement.SetElement;
 
 public class Vehicle {
 	
