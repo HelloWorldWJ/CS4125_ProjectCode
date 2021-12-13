@@ -9,13 +9,16 @@ import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.Spring;
 
 import Driver.Driver;
 import Driver.IrritableDriver;
 import Driver.NormalDriver;
+import Observer.Speed_Monitor;
+import Observer.Speed_show;
 import Driver.DriverFactory;
 import Vehicle.Ferrari;
 import Vehicle.Vehicle;
@@ -23,7 +26,7 @@ import Vehicle.VehicleTypeFactory;
 import Driver.DriverFactory.DriverTemper;
 
 
-import java.awt.BasicStroke;
+
 
 public class Draw_map implements I_Draw_map{
 	private int index;
@@ -93,12 +96,15 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void drawspeed()
+	private void drawspeed(double speed)
 	{
+		
 	
+	
+		String speed_str = "" + speed;
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("¿¬Ìå", Font.BOLD, 20));
-		this.graphics.drawString("6", 0, 590);
+		this.graphics.drawString(speed_str, 0, 590);
 	
 	}
 	
@@ -120,6 +126,9 @@ public class Draw_map implements I_Draw_map{
 	
 	public void render() {
 		
+		
+		Speed_Monitor m = new Speed_Monitor();
+		Speed_show s1 = new Speed_show(m); 
 		this.drawbackground();
 		for (Lane l : this.lanes) 
 		{
@@ -127,25 +136,28 @@ public class Draw_map implements I_Draw_map{
         }
 		for (Driver driver : this.drivers)
 		{
-			this.drawVehicle(driver.getVehilce());
-			//System.out.println(driver.getClass().toString());
 			
+			this.drawVehicle(driver.getVehilce());			
 			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
 				//System.out.println("1");
 				NormalDriver NormalDriver = (NormalDriver)driver;
 				NormalDriver.Drive();
-				NormalDriver.pri();
+				//NormalDriver.pri();
 			}
 			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) {
 				//System.out.println("2");
 				IrritableDriver IrritableDriver = (IrritableDriver)driver;
 				IrritableDriver.Drive();
-				IrritableDriver.pri();
+				//IrritableDriver.pri();
 			}
-			//driver.limitSpeed();
-			//driver.pri();
+			if(drivers.indexOf(driver) == 0)
+			{
+				m.set_speed(driver.getVehilce().getSpeed());
+			}
+
 		}
-		this.drawspeed();
+		
+		this.drawspeed(s1.show_speed());
         //this.drawVehicle(this.driver.getVehilce());
 		this.buffer.show();
 		

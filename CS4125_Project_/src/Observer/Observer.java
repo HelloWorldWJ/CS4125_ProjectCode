@@ -6,7 +6,7 @@ import Control_Factor.Warning_Light;
 
 public interface Observer {
 
-	public void update();
+	public void update(double speed);
 }
 
 
