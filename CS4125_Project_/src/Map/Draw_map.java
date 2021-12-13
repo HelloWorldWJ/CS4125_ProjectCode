@@ -43,6 +43,12 @@ public class Draw_map implements I_Draw_map{
 	private Lane1 lane1;
 	private Lane2 lane2;
 	private ArrayList<Lane>lanes;
+	private Speed_Monitor m ;
+	private Speed_show s1; 
+	private Speed_show s2; 
+	private Speed_show s3; 
+	private Speed_show s4; 
+	
 	
 	
 	public Draw_map(IDisplay idis, double map_wi, double map_he, ArrayList<Driver>drivers, ArrayList<Lane> lanes)
@@ -54,10 +60,7 @@ public class Draw_map implements I_Draw_map{
         int currentY = (int) center.getY();
 		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
 		System.out.println("----------------------------");
-		System.out.println("(Vehicle--DriverTemper--Speed)");
-//        System.out.println("Draw_map class ScreenX: "+currentX+" ScreenY "+currentY);
-        
-		
+		System.out.println("(Vehicle--DriverTemper--Speed)");		
         this.lanes = lanes;   
 	    this.drivers = drivers;		    
 		this.display = idis;	
@@ -66,12 +69,19 @@ public class Draw_map implements I_Draw_map{
 		this.lane1 = new Lane1();
 		this.lane2 = new Lane2();
 		this.set_map();
+		Observer_init();
 	
 	}
+	private void Observer_init()
+	{
+		this.m = new Speed_Monitor();
+		this.s1 = new Speed_show(m);
+		this.s2 = new Speed_show(m);
+		this.s3 = new Speed_show(m);
+		this.s4 = new Speed_show(m);
+		
+	}
 	
-
-
-
 	public void set_map() //create the graphics of map
 	{
 		
@@ -98,9 +108,7 @@ public class Draw_map implements I_Draw_map{
 	
 	private void drawspeed(double speed)
 	{
-		
-	
-	
+
 		String speed_str = "" + speed;
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("¿¬Ìå", Font.BOLD, 20));
@@ -124,11 +132,11 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 	
-	public void render() {
-		
-		
-		Speed_Monitor m = new Speed_Monitor();
-		Speed_show s1 = new Speed_show(m); 
+	public void render() 
+	{
+
+//		Speed_Monitor m = new Speed_Monitor();
+//		Speed_show s1 = new Speed_show(m); 
 		this.drawbackground();
 		for (Lane l : this.lanes) 
 		{
@@ -139,29 +147,24 @@ public class Draw_map implements I_Draw_map{
 			
 			this.drawVehicle(driver.getVehilce());			
 			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
-				//System.out.println("1");
 				NormalDriver NormalDriver = (NormalDriver)driver;
 				NormalDriver.Drive();
 				//NormalDriver.pri();
 			}
 			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) {
-				//System.out.println("2");
 				IrritableDriver IrritableDriver = (IrritableDriver)driver;
 				IrritableDriver.Drive();
 				//IrritableDriver.pri();
 			}
 			if(drivers.indexOf(driver) == 0)
 			{
-				m.set_speed(driver.getVehilce().getSpeed());
+				this.m.set_speed(driver.getVehilce().getSpeed());
 			}
-
-		}
-		
-		this.drawspeed(s1.show_speed());
-        //this.drawVehicle(this.driver.getVehilce());
+		}	
+		this.drawspeed(this.s1.show_speed());
 		this.buffer.show();
-		
-	}
+    }
+
 	
 	
 	
