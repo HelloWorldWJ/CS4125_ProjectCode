@@ -18,7 +18,10 @@ import Driver.Driver;
 import Driver.IrritableDriver;
 import Driver.NormalDriver;
 import Observer.Speed_Monitor;
-import Observer.Speed_show;
+import Observer.Track1_Ob;
+import Observer.Track2_Ob;
+import Observer.Track3_Ob;
+import Observer.Track4_Ob;
 import Driver.DriverFactory;
 import Vehicle.Ferrari;
 import Vehicle.Vehicle;
@@ -44,10 +47,10 @@ public class Draw_map implements I_Draw_map{
 	private Lane2 lane2;
 	private ArrayList<Lane>lanes;
 	private Speed_Monitor m ;
-	private Speed_show s1; 
-	private Speed_show s2; 
-	private Speed_show s3; 
-	private Speed_show s4; 
+	private Track1_Ob t1; 
+	private Track2_Ob t2; 
+	private Track3_Ob t3; 
+	private Track4_Ob t4; 
 	
 	
 	
@@ -75,10 +78,10 @@ public class Draw_map implements I_Draw_map{
 	private void Observer_init()
 	{
 		this.m = new Speed_Monitor();
-		this.s1 = new Speed_show(m);
-		this.s2 = new Speed_show(m);
-		this.s3 = new Speed_show(m);
-		this.s4 = new Speed_show(m);
+		this.t1 = new Track1_Ob(m);
+		this.t2 = new Track2_Ob(m);
+		this.t3 = new Track3_Ob(m);
+		this.t4 = new Track4_Ob(m);
 		
 	}
 	
@@ -106,13 +109,14 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void drawspeed(double speed)
+	private void drawspeed(double speed, int height)
 	{
 
 		String speed_str = "" + speed;
+		//System.out.println(speed_str);
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("¿¬Ìå", Font.BOLD, 20));
-		this.graphics.drawString(speed_str, 0, 590);
+		this.graphics.drawString(speed_str +" km/h", 0, height);
 	
 	}
 	
@@ -151,19 +155,27 @@ public class Draw_map implements I_Draw_map{
 				NormalDriver.Drive();
 				//NormalDriver.pri();
 			}
-			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) {
+			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) 
+			{
 				IrritableDriver IrritableDriver = (IrritableDriver)driver;
 				IrritableDriver.Drive();
-				//IrritableDriver.pri();
 			}
-			if(drivers.indexOf(driver) == 0)
-			{
-				this.m.set_speed(driver.getVehilce().getSpeed());
-			}
+
 		}	
-		this.drawspeed(this.s1.show_speed());
+		
+		Observe_Distribute(drivers);
 		this.buffer.show();
     }
+	
+	private void Observe_Distribute(ArrayList<Driver>ds)
+	{
+		this.m.set_speed(ds.get(0).getVehilce().getSpeed(), ds.get(1).getVehilce().getSpeed(), ds.get(2).getVehilce().getSpeed(), ds.get(3).getVehilce().getSpeed());
+        this.drawspeed(this.t1.Track1_speed(), 570);
+       
+        this.drawspeed(this.t2.Track2_speed(), 550);
+        this.drawspeed(this.t3.Track3_speed(), 530);
+        this.drawspeed(this.t4.Track4_speed(), 510);
+	}
 
 	
 	
