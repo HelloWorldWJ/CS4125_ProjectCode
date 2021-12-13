@@ -15,7 +15,7 @@ public class IrritableDriver extends Driver {
 	private double currentspeed;
 	
 	private boolean isDecelerate;
-	
+		
 
 	public IrritableDriver(String name, Vehicle vehicle) {
 		super(name, vehicle);
@@ -30,6 +30,14 @@ public class IrritableDriver extends Driver {
 	
 	public String getDriverTemperType() {
 		return this.DriverTemperType;
+	}
+	
+	public double getMaxLimitedSpeed() {
+		return this.max_limitedSpeed;
+	}
+	
+	public double getMinLimitedSpeed() {
+		return this.min_limitedSpeed;
 	}
 	
 	public void Drive() {		

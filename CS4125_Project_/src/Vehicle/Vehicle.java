@@ -30,9 +30,18 @@ public class Vehicle {
 	//private VehicleType vt;
 	private VehicleEngineDecorator veEngineDec;
 	private double acceleration;
+	
+	public Vehicle() {
+		
+	}
+	
+	public Vehicle(double angular_speed, double circle_angle) {
+		this.angular_speed = angular_speed;
+		this.circle_angle = circle_angle;
+	}
 
 
-	public Vehicle(double angle, Point xy,  Lane track, VehicleEngineDecorator veEngineDec) {
+	public Vehicle(double angle, Point xy, Lane track, VehicleEngineDecorator veEngineDec) {
 //		this.Brand = Brand;
 		this.veEngineDec = veEngineDec;
 		this.vehicleLength = veEngineDec.getVehicleLength();
@@ -62,7 +71,7 @@ public class Vehicle {
 		return this.veEngineDec;
 	}
 	
-	private void Sum_angle()
+	public void Sum_angle()
 	{
 		//speed_increase();
 		
@@ -74,7 +83,7 @@ public class Vehicle {
 	}
 	
 
-	private double Get_sum_angle()
+	public double Get_sum_angle()
 	{
 		return this.circle_angle;
 	}
@@ -108,7 +117,7 @@ public class Vehicle {
 		return this.angular_speed;
 	}
 	
-	public void move(int speed)
+	public void move()
 	{
 		this.Sum_angle();
 		//System.out.println(this.track.get_Radius());

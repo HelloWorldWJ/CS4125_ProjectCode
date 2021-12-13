@@ -5,10 +5,7 @@ import Vehicle.Vehicle;
 public class Driver implements Runnable{
 	
 	private String name;
-    protected Vehicle vehicle;
-    private int speed = 1;
-	
-	
+    protected Vehicle vehicle;	
 
 	public Driver(String name, Vehicle vehicle)
 	{
@@ -26,7 +23,7 @@ public class Driver implements Runnable{
 	}
 	public void drive()
 	{
-		this.vehicle.move(speed);
+		this.vehicle.move();
 	}
 	
 	@Override
