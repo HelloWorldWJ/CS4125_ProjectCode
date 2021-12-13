@@ -13,7 +13,7 @@ public class Benz implements VehicleType{
 		this.speed = 0.5;
 		this.vehiclelength = 20;
 		this.vehiclewidth = 20;
-		this.vehiclepath = "slowcar.png";//
+		this.vehiclepath = "Benz.png";//
 		this.CarName = "Benz";
 	}
 	@Override

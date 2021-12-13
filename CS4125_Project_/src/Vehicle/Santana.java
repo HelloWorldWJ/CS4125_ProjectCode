@@ -13,7 +13,7 @@ public class Santana implements VehicleType{
 		this.speed = 0.2;
 		this.vehiclelength = 20;
 		this.vehiclewidth = 20;
-		this.vehiclepath = "slowcar.png";//
+		this.vehiclepath = "Santana.png";//
 		this.CarName = "Santana";
 	}
 	@Override

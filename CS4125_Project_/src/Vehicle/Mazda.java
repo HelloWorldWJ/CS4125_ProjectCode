@@ -13,7 +13,7 @@ public class Mazda implements VehicleType{
 		this.speed = 0.3;
 		this.vehiclelength = 20;
 		this.vehiclewidth = 20;
-		this.vehiclepath = "slowcar.png";//
+		this.vehiclepath = "Mazda.png";//
 		this.CarName = "Mazda";
 	}
 	@Override
