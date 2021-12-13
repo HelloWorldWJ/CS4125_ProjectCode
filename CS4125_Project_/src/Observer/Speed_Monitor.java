@@ -31,7 +31,8 @@ public class Speed_Monitor implements Subject{
 		// TODO Auto-generated method stub
 		for(int i = 0; i < this.observers.size(); i++)
 		{
-			//this.observers.indexOf(i).update();
+			Observer o = this.observers.get(i);
+			o.update();
 		}
 		
 	}
