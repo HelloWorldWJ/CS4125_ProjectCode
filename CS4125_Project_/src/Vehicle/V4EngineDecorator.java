@@ -2,10 +2,7 @@ package Vehicle;
 
 public class V4EngineDecorator extends VehicleEngineDecorator{
 	
-	private double speed;
-	private double vehiclelength;
-	private double vehiclewidth;
-	private String vehiclepath;
+
 	private double acceleration;
 	
 	public V4EngineDecorator(VehicleType decoratedV) {

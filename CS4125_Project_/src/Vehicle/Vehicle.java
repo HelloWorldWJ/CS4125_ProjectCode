@@ -1,6 +1,5 @@
 package Vehicle;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
@@ -22,8 +21,6 @@ public class Vehicle {
 	private Lane track;
 	private double angle;
 	private Point position;
-	private int current_location_x;
-	private int current_location_y;
 	private String imagePath;
 	private BufferedImage carImage;
 	private double circle_angle;

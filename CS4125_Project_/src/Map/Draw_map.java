@@ -9,11 +9,8 @@ import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
-import javax.swing.Spring;
-
 import Driver.Driver;
 import Driver.IrritableDriver;
 import Driver.NormalDriver;
@@ -22,17 +19,13 @@ import Observer.Track1_Ob;
 import Observer.Track2_Ob;
 import Observer.Track3_Ob;
 import Observer.Track4_Ob;
-import Driver.DriverFactory;
-import Vehicle.Ferrari;
 import Vehicle.Vehicle;
-import Vehicle.VehicleTypeFactory;
-import Driver.DriverFactory.DriverTemper;
+
 
 
 
 
 public class Draw_map implements I_Draw_map{
-	private int index;
 	private int Map_size_x;
 	private int Map_size_y;
 	private IDisplay display;
@@ -42,9 +35,7 @@ public class Draw_map implements I_Draw_map{
 	private final String BACKGROUND_PATH;
 	private Point center;
 	private ArrayList<Driver>drivers;
-	private Vehicle vehicle;
-	private Lane1 lane1;
-	private Lane2 lane2;
+
 	private ArrayList<Lane>lanes;
 	private Speed_Monitor m ;
 	private Track1_Ob t1; 
@@ -59,15 +50,11 @@ public class Draw_map implements I_Draw_map{
 		this.Map_size_x = (int)map_wi;
 		this.Map_size_y = (int)map_he;   			    
 	    this.center = new Point((Map_size_x), (Map_size_y));
-		int currentX = (int) center.getX();
-        int currentY = (int) center.getY();	
         this.lanes = lanes;   
 	    this.drivers = drivers;		    
 		this.display = idis;	
 		this.BACKGROUND_PATH = "background.png";
 		this.background =  create_background();
-		this.lane1 = new Lane1();
-		this.lane2 = new Lane2();
 		this.set_map();
 		print_important_info();
 		Observer_init();

@@ -75,7 +75,6 @@ public class Lane3 extends Lane{
 	public Point get_Position(int cell_index) {
 		// TODO Auto-generated method stub
 		Point p = new Point();
-		double angele = this.angle_per_cell*(cell_index % this.number_of_cells);
 		return p;
 	}
 

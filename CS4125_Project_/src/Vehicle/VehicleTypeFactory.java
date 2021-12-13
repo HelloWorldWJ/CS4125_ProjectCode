@@ -1,10 +1,5 @@
 package Vehicle;
 
-import java.awt.Point;
-
-import Map.Lane1;
-
-
 public class VehicleTypeFactory {
 	public static enum Vehicle_Type
 	{

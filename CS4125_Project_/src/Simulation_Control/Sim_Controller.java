@@ -8,8 +8,6 @@ import Map.Lane3;
 import Map.Lane4;
 import Driver.Driver;
 import Driver.DriverFactory;
-import Driver.NormalDriver;
-import Driver.IrritableDriver;
 import Vehicle.V6EngineDecorator;
 import Vehicle.V8EngineDecorator;
 import Vehicle.V3EngineDecorator;
@@ -27,7 +25,7 @@ public class Sim_Controller extends Thread_source{
 	private Thread_source graphics; //the Gra_Controller
 	private ArrayList<Lane> lanes;
 	private ArrayList<Driver>drivers;
-	private Lane1 lane1;
+
 	private Point Firstcar_loc;
 	private Point Secondcar_loc;
 	private Point Thirdcar_loc;

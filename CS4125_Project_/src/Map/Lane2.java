@@ -60,7 +60,6 @@ public class Lane2 extends Lane{
 	public Point get_Position(int cell_index)// need to be modified
 	{
 		Point p = new Point();
-		double angele = this.angle_per_cell*(cell_index % this.number_of_cells);
 		return p;
 		
 	}

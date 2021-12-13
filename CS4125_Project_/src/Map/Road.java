@@ -1,7 +1,6 @@
 package Map;
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.ArrayList;
+
 
 public class Road {
 	

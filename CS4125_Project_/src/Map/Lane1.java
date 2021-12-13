@@ -8,7 +8,6 @@ public class Lane1 extends Lane{
 	private int he;
 	private int lane_width;
 	private Color lane_Color;
-	private double angle_per_cell;// every single space has a specified angle
 	private int number_of_cells;
 	private int radius;
 	
@@ -23,7 +22,6 @@ public class Lane1 extends Lane{
 		this.he = 556;
 		this.lane_width = 25;
 		this.number_of_cells = 1000;
-		this.angle_per_cell = 360/this.number_of_cells;
 		this.lane_Color =  new Color(71, 73, 76);
 		this.radius = this.wi/2;//this.wi/2;
 		
@@ -62,9 +60,8 @@ public class Lane1 extends Lane{
 	public Point get_Position(int cell_index)// need to be modified
 	{
 		Point p = new Point();
-		double angele = this.angle_per_cell*(cell_index % this.number_of_cells);
 		return p;
-		
+	
 	}
 	@Override
 	public int get_Radius() {
