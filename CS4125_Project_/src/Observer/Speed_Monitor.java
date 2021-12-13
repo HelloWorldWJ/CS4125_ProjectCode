@@ -3,10 +3,7 @@ import java.util.ArrayList;
 public class Speed_Monitor implements Subject{
 	
 	ArrayList<Double>speeds_in_all_tracks;
-	private double Monitored_Speed_in_track_1;
-	private double Monitored_Speed_in_track_2;
-	private double Monitored_Speed_in_track_3;
-	private double Monitored_Speed_in_track_4;
+	ArrayList<String>drivernames_in_all_tracks;
 
 	
 	private ArrayList<Observer>observers;
@@ -36,19 +33,20 @@ public class Speed_Monitor implements Subject{
 		for(int i = 0; i < this.observers.size(); i++)
 		{
 			Observer o = (Observer)this.observers.get(i);
-			o.update(this.speeds_in_all_tracks);
+			o.update(this.speeds_in_all_tracks, this.drivernames_in_all_tracks);
 		}
 		
 	}
 	
 
-	public void set_speed(ArrayList<Double>speeds)
+	public void set_info(ArrayList<String>drivernames, ArrayList<Double>speeds)
 	{
 		this.speeds_in_all_tracks = speeds;
-		this.speedChanged();		
+		this.drivernames_in_all_tracks  = drivernames;
+		this.infoChanged();		
 	}
 
-	private void speedChanged() 
+	private void infoChanged() 
 	{
 		notifyOb();
 	

@@ -9,7 +9,7 @@ import Control_Factor.Warning_Light;
 
 public interface Observer {
 
-	public void update(ArrayList<Double>speeds);
+	public void update(ArrayList<Double>speeds, ArrayList<String>drivernames);
 }
 
 

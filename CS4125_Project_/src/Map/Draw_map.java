@@ -80,6 +80,7 @@ public class Draw_map implements I_Draw_map{
 		System.out.println("----------------------------");
 		System.out.println("(Vehicle--DriverTemper--Speed)");	
 	}
+	
 	private void Observer_init()
 	{
 		this.m = new Speed_Monitor();
@@ -114,14 +115,14 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void drawspeed(double speed, int height)
+	private void draw_updateinfo_in_all_tracks(double speed, String drivername, int height)
 	{
 
 		String speed_str = "" + speed;
 		//System.out.println(speed_str);
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("¿¬Ìå", Font.BOLD, 20));
-		this.graphics.drawString(speed_str +" km/h", 0, height);
+		this.graphics.drawString(drivername + "  " + speed_str +" km/h", 0, height);
 	
 	}
 	
@@ -180,11 +181,18 @@ public class Draw_map implements I_Draw_map{
 		speeds.add(ds.get(2).getVehilce().getSpeed());
 		speeds.add(ds.get(3).getVehilce().getSpeed());
 		
-		this.m.set_speed(speeds);
-        this.drawspeed(this.t1.Track1_speed(), 570);
-        this.drawspeed(this.t2.Track2_speed(), 550);
-        this.drawspeed(this.t3.Track3_speed(), 530);
-        this.drawspeed(this.t4.Track4_speed(), 510);
+		ArrayList<String>driverNames = new ArrayList<>();
+		driverNames.add(ds.get(0).getName());
+		driverNames.add(ds.get(1).getName());
+		driverNames.add(ds.get(2).getName());
+		driverNames.add(ds.get(3).getName());
+		
+		
+		this.m.set_info(driverNames,speeds);	
+        this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), 570);
+        this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), 550);
+        this.draw_updateinfo_in_all_tracks(this.t3.Track3_speed(), this.t3.Track3_drivernames(), 530);
+        this.draw_updateinfo_in_all_tracks(this.t4.Track4_speed(), this.t4.Track4_drivernames(), 510);
 	}
 
 	
@@ -196,8 +204,7 @@ public class Draw_map implements I_Draw_map{
 			return ImageIO.read(new File(this.BACKGROUND_PATH));	
 			            
 		} 
-		
-		
+
 		catch (Exception e) 
 		{	
 			System.out.print(e);
