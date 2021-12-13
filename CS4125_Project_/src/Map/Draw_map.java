@@ -1,6 +1,7 @@
 package Map;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.AffineTransform;
@@ -92,6 +93,15 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
+	private void drawspeed()
+	{
+	
+		this.graphics.setColor(Color.RED);
+		this.graphics.setFont(new Font("¿¬Ìå", Font.BOLD, 20));
+		this.graphics.drawString("6", 0, 590);
+	
+	}
+	
 	
 	private void drawLane(Lane lane)
 	{
@@ -135,8 +145,10 @@ public class Draw_map implements I_Draw_map{
 			//driver.limitSpeed();
 			//driver.pri();
 		}
+		this.drawspeed();
         //this.drawVehicle(this.driver.getVehilce());
 		this.buffer.show();
+		
 	}
 	
 	
