@@ -6,6 +6,11 @@ public class Speed_Monitor implements Subject{
 	private double Monitored_Speed_in_track_2;
 	private double Monitored_Speed_in_track_3;
 	private double Monitored_Speed_in_track_4;
+//	private String Monitored_carname_in_track1;
+//	private String Monitored_carname_in_track2;
+//	private String Monitored_carname_in_track3;
+//	private String Monitored_carname_in_track4;
+	
 	private ArrayList<Observer>observers;
 	public Speed_Monitor()
 	{
@@ -17,7 +22,6 @@ public class Speed_Monitor implements Subject{
 	public void registerOb(Observer o) {
 		// TODO Auto-generated method stub
 		observers.add(o);
-		
 	}
 
 	@Override
@@ -45,6 +49,7 @@ public class Speed_Monitor implements Subject{
 		this.Monitored_Speed_in_track_2 = speed2;
 		this.Monitored_Speed_in_track_3 = speed3;
 		this.Monitored_Speed_in_track_4 = speed4;
+		
 		this.speedChanged();		
 	}
 

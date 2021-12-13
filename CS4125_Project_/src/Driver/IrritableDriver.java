@@ -32,9 +32,7 @@ public class IrritableDriver extends Driver {
 		return this.DriverTemperType;
 	}
 	
-	public void Drive() {
-		//System.out.println("A");
-		
+	public void Drive() {		
 		currentspeed = vehicle.getSpeed();
 		if(!isDecelerate) {
 			super.vehicle.speed_increase();
@@ -48,7 +46,8 @@ public class IrritableDriver extends Driver {
 		}
 	}
 	
-	public void pri() {
+	public void pri() 
+	{
 		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
 	}
 

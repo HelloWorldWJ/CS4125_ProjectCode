@@ -60,10 +60,7 @@ public class Draw_map implements I_Draw_map{
 		this.Map_size_y = (int)map_he;   			    
 	    this.center = new Point((Map_size_x), (Map_size_y));
 		int currentX = (int) center.getX();
-        int currentY = (int) center.getY();
-		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
-		System.out.println("----------------------------");
-		System.out.println("(Vehicle--DriverTemper--Speed)");		
+        int currentY = (int) center.getY();	
         this.lanes = lanes;   
 	    this.drivers = drivers;		    
 		this.display = idis;	
@@ -72,8 +69,16 @@ public class Draw_map implements I_Draw_map{
 		this.lane1 = new Lane1();
 		this.lane2 = new Lane2();
 		this.set_map();
+		print_important_info();
 		Observer_init();
 	
+	}
+	
+	private void print_important_info()
+	{
+		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
+		System.out.println("----------------------------");
+		System.out.println("(Vehicle--DriverTemper--Speed)");	
 	}
 	private void Observer_init()
 	{
@@ -169,17 +174,19 @@ public class Draw_map implements I_Draw_map{
 	
 	private void Observe_Distribute(ArrayList<Driver>ds)
 	{
+		ArrayList<Double>speeds = new ArrayList<>();
+		speeds.add(ds.get(0).getVehilce().getSpeed());
+		speeds.add(ds.get(1).getVehilce().getSpeed());
+		speeds.add(ds.get(2).getVehilce().getSpeed());
+		speeds.add(ds.get(3).getVehilce().getSpeed());
+		
 		this.m.set_speed(ds.get(0).getVehilce().getSpeed(), ds.get(1).getVehilce().getSpeed(), ds.get(2).getVehilce().getSpeed(), ds.get(3).getVehilce().getSpeed());
         this.drawspeed(this.t1.Track1_speed(), 570);
-       
         this.drawspeed(this.t2.Track2_speed(), 550);
         this.drawspeed(this.t3.Track3_speed(), 530);
         this.drawspeed(this.t4.Track4_speed(), 510);
 	}
 
-	
-	
-	
 	
 	private BufferedImage create_background()
 	{
