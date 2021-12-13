@@ -2,14 +2,12 @@ package Observer;
 import java.util.ArrayList;
 public class Speed_Monitor implements Subject{
 	
+	ArrayList<Double>speeds_in_all_tracks;
 	private double Monitored_Speed_in_track_1;
 	private double Monitored_Speed_in_track_2;
 	private double Monitored_Speed_in_track_3;
 	private double Monitored_Speed_in_track_4;
-//	private String Monitored_carname_in_track1;
-//	private String Monitored_carname_in_track2;
-//	private String Monitored_carname_in_track3;
-//	private String Monitored_carname_in_track4;
+
 	
 	private ArrayList<Observer>observers;
 	public Speed_Monitor()
@@ -38,18 +36,15 @@ public class Speed_Monitor implements Subject{
 		for(int i = 0; i < this.observers.size(); i++)
 		{
 			Observer o = (Observer)this.observers.get(i);
-			o.update(this.Monitored_Speed_in_track_1, this.Monitored_Speed_in_track_2, this.Monitored_Speed_in_track_3, this.Monitored_Speed_in_track_4);
+			o.update(this.speeds_in_all_tracks);
 		}
 		
 	}
 	
-	public void set_speed(double speed1, double speed2, double speed3, double speed4)
+
+	public void set_speed(ArrayList<Double>speeds)
 	{
-		this.Monitored_Speed_in_track_1 = speed1;
-		this.Monitored_Speed_in_track_2 = speed2;
-		this.Monitored_Speed_in_track_3 = speed3;
-		this.Monitored_Speed_in_track_4 = speed4;
-		
+		this.speeds_in_all_tracks = speeds;
 		this.speedChanged();		
 	}
 

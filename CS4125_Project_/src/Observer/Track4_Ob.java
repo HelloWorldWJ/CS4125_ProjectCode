@@ -1,12 +1,11 @@
 package Observer;
 
+import java.util.ArrayList;
+
 public class Track4_Ob implements Observer{
 	
     private Subject S_monitor;
-    private double Show_speed1;
-    private double Show_speed2;
-    private double Show_speed3;
-    private double Show_speed4;
+    ArrayList<Double>speeds;
 	public Track4_Ob(Subject Speed_monitor)
 	{
 		this.S_monitor = S_monitor;
@@ -14,16 +13,13 @@ public class Track4_Ob implements Observer{
 		
 	}
 	@Override
-	public void update(double speed1, double speed2, double speed3, double speed4) {
-		this.Show_speed1 = speed1;
-		this.Show_speed2 = speed2;
-		this.Show_speed3 = speed3;
-		this.Show_speed4 = speed4;
+	public void update(ArrayList<Double>speeds) {
+		this.speeds = speeds;
 	
 	}
 	public double Track4_speed()
 	{
-		return this.Show_speed4;
+		return this.speeds.get(3);
 	}
 
 }

@@ -180,7 +180,7 @@ public class Draw_map implements I_Draw_map{
 		speeds.add(ds.get(2).getVehilce().getSpeed());
 		speeds.add(ds.get(3).getVehilce().getSpeed());
 		
-		this.m.set_speed(ds.get(0).getVehilce().getSpeed(), ds.get(1).getVehilce().getSpeed(), ds.get(2).getVehilce().getSpeed(), ds.get(3).getVehilce().getSpeed());
+		this.m.set_speed(speeds);
         this.drawspeed(this.t1.Track1_speed(), 570);
         this.drawspeed(this.t2.Track2_speed(), 550);
         this.drawspeed(this.t3.Track3_speed(), 530);
