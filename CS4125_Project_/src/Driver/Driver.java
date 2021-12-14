@@ -1,5 +1,5 @@
 package Driver;
-import Thread.Timer;
+import Thread.Threadprocess;
 import Vehicle.Vehicle;
 
 public class Driver implements Runnable{
@@ -34,7 +34,7 @@ public class Driver implements Runnable{
 	@Override
 	public void run() {// because it implements the runnable interface so this class should have the function below that is associated with threads
 		// every driver is a thread 
-		Timer t = new Timer(Timer.DEFAULT_FRAMERATE);
+		Threadprocess t = new Threadprocess(Threadprocess.DEFAULT_FRAMERATE);
 		t.setMessage("Driver");
 		while(true)
 		{

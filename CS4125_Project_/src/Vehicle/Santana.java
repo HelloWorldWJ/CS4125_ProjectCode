@@ -8,6 +8,7 @@ public class Santana implements VehicleType{
 	private String vehiclepath;
 	private String CarName;
 	
+	// the private variables below is related to the information about Santana
 	public Santana()
 	{
 		this.speed = 0.2;
@@ -16,6 +17,8 @@ public class Santana implements VehicleType{
 		this.vehiclepath = "Santana.png";//
 		this.CarName = "Santana";
 	}
+	
+	//the codes are used to return information about corresponding car
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub

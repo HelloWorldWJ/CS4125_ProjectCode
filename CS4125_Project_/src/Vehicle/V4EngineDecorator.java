@@ -10,6 +10,7 @@ public class V4EngineDecorator extends VehicleEngineDecorator{
 		setAcceleration();
 	}
 
+	//return the corresponding information of the car that is equipped with v4 
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub
@@ -39,6 +40,7 @@ public class V4EngineDecorator extends VehicleEngineDecorator{
 		return this.acceleration;
 	}
 	
+	//this function can set the acceleration
 	private void setAcceleration() {
 		this.acceleration = 0.001 * 2;
 	}

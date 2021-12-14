@@ -12,7 +12,7 @@ public class Lane1 extends Lane{
 	private int radius;
 	
 	
-	public Lane1()
+	public Lane1()//constructor function and the variables below are all the private information about lane 1
 	{
 	
 		this.center = new Point();
@@ -28,6 +28,8 @@ public class Lane1 extends Lane{
 		
 
 	}
+	
+	//return the information about lane 1.
 	public int getX() {
 		return this.center.x / 2;
 	}

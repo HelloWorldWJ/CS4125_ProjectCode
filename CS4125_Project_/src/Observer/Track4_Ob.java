@@ -2,7 +2,8 @@ package Observer;
 
 import java.util.ArrayList;
 
-public class Track4_Ob implements Observer{
+//this class will observe all of the imfomation about the driver in lane 4
+public class Track4_Ob implements Observer{// this is one of observer classes that implements observer interface
 	
     private Subject S_monitor;
     ArrayList<Double>speeds;
@@ -10,7 +11,7 @@ public class Track4_Ob implements Observer{
     ArrayList<String>carNames;
     ArrayList<String>driverTempers;
     
-	public Track4_Ob(Subject Speed_monitor)
+	public Track4_Ob(Subject Speed_monitor)//constructor class
 	{
 		this.S_monitor = S_monitor;
 		Speed_monitor.registerOb(this);
@@ -24,6 +25,8 @@ public class Track4_Ob implements Observer{
 		this.driverTempers = driverTempers;
 	
 	}
+	
+	// the functions below will return the corresponding information, when they are called
 	public double Track4_speed()
 	{
 		return this.speeds.get(3);

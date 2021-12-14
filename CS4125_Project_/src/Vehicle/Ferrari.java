@@ -9,6 +9,7 @@ public class Ferrari implements VehicleType{
 	private String vehiclepath;
 	private String CarName;
 	
+	// the private variables below is related to the information about Ferrari
 	public Ferrari()
 	{
 		this.speed = 1;
@@ -19,7 +20,7 @@ public class Ferrari implements VehicleType{
 		
 	}
 
-	
+	//the codes are used to return information about corresponding car
 	public double getspeed() {
 		// TODO Auto-generated method stub
 		return speed;

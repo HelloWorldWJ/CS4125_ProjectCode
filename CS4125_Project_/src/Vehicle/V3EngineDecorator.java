@@ -4,11 +4,12 @@ public class V3EngineDecorator extends VehicleEngineDecorator{
 	
 	private double acceleration;
 	
-	public V3EngineDecorator(VehicleType decoratedV) {
-		super(decoratedV);
-		setAcceleration();
+	public V3EngineDecorator(VehicleType decoratedV) {// the constructor function 
+		super(decoratedV);// send this variable to the father class
+		setAcceleration();// set the acceleration
 	}
 
+	//return the corresponding information of the car that is equipped with v3 
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub
@@ -38,6 +39,7 @@ public class V3EngineDecorator extends VehicleEngineDecorator{
 		return this.acceleration;
 	}
 	
+	//this function can set the acceleration
 	private void setAcceleration() {
 		this.acceleration = 0.0007 * 2;
 	}

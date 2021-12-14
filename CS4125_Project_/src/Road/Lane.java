@@ -3,7 +3,7 @@ package Road;
 import java.awt.Color;
 import java.awt.Point;
 
-public abstract class Lane {
+public abstract class Lane {// an abstract class will be extended by 4 lane classes
 	
 	public abstract int getX();
 

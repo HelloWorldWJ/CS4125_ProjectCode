@@ -54,7 +54,7 @@ public class Sim_Controller extends Thread_source{
 		VehicleType Mazda = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Mazda);
 		VehicleType Santana = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Santana);
 		
-		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);
+		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);//the codes bel uses the decorated pattern
 		VehicleEngineDecorator v6EngineCar = new V6EngineDecorator(Benz);
 		VehicleEngineDecorator v4EngineCar = new V4EngineDecorator(Mazda);
 		VehicleEngineDecorator v3EngineCar = new V3EngineDecorator(Santana);
@@ -67,7 +67,7 @@ public class Sim_Controller extends Thread_source{
 		
 		
 		DriverFactory d_fac = new DriverFactory();
-		
+		// the code fragment below will distribute temper to every driver randomly.
 		int DriverTemperJudge;
 		DriverTemperJudge = (int)(Math.random()*2);
 		if(DriverTemperJudge == 0) {
@@ -122,7 +122,7 @@ public class Sim_Controller extends Thread_source{
 	
 	public void init_lanes()
 	{
-		
+		//create the arraylist for lanes
 		this.lanes = new ArrayList<>();		
 		Lane1 lane1 = new Lane1();//will use the arraylist
 		this.lanes.add(lane1);
@@ -137,12 +137,10 @@ public class Sim_Controller extends Thread_source{
 	
 	public void begin()
 	{
-		for(Driver d : drivers)
+		for(Driver d : drivers)//every driver is thread, so here, it starts every thread
 		{
 			new Thread(d).start();
 		}
-		
-		
 		graphics.run();
 		
 	}

@@ -1,7 +1,7 @@
 package Vehicle;
 
 public class VehicleTypeFactory {
-	public static enum Vehicle_Type
+	public static enum Vehicle_Type// there are at total four kinds of cars.
 	{
 		Ferrari,
 		Benz,
@@ -11,6 +11,7 @@ public class VehicleTypeFactory {
 
 	public VehicleType createVehicle(Vehicle_Type type) 
 	{
+		//return which cars depends on the inputting enum type
 			
 		switch(type)
 		{

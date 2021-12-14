@@ -1,5 +1,5 @@
 package Simulation_Control;
-import Thread.Timer;
+import Thread.Threadprocess;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class Gra_Controller extends Thread_source{
 	@Override
 	public void run()//use the run function in Control_thread
 	{
-		Timer t = new Timer(Timer.DEFAULT_FRAMERATE);
+		Threadprocess t = new Threadprocess(Threadprocess.DEFAULT_FRAMERATE);
     	t.setMessage("Map");
 		
 		boolean success = true;

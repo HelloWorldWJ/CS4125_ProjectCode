@@ -16,6 +16,7 @@ public class V8EngineDecorator extends VehicleEngineDecorator{
 		setAcceleration();
 	}
 
+	//return the corresponding information of the car that is equipped with v8
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub
@@ -44,7 +45,7 @@ public class V8EngineDecorator extends VehicleEngineDecorator{
 		// TODO Auto-generated method stub
 		return this.acceleration;
 	}
-	
+	//this function can set the acceleration
 	private void setAcceleration() {
 		this.acceleration = 0.008 * 2;
 	}
@@ -53,6 +54,7 @@ public class V8EngineDecorator extends VehicleEngineDecorator{
 		return this.acceleration;
 	}
 
+	
 	@Override
 	public String getCarName() {
 		// TODO Auto-generated method stub

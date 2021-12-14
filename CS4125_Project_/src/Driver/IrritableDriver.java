@@ -43,18 +43,18 @@ public class IrritableDriver extends Driver {// the irriable driver extends the 
 	public void Drive() {// the driving style for iterative driver
 		currentspeed = vehicle.getSpeed();
 		if(!isDecelerate) {//if the speed doesn't decrease, it will start increasing
-			super.vehicle.speed_increase();
-			if(currentspeed >= max_limitedSpeed)// whether the speed increases depends on whether it exceeds the maximum of speed
+			super.vehicle.speed_increase();// whether the speed increases depends on whether it exceeds the maximum of speed
+			if(currentspeed >= max_limitedSpeed)
 				isDecelerate = true;
 		}
 		else if(isDecelerate) {
-			super.vehicle.speed_decrease();
-			if(currentspeed <= min_limitedSpeed)// whether the speed decreases depends on whether it is below the minimum of speed
+			super.vehicle.speed_decrease();// whether the speed decreases depends on whether it is below the minimum of speed
+			if(currentspeed <= min_limitedSpeed)
 				isDecelerate = false;
 		}
 	}
-	
-	public void pri() // this function is used to inspect the output the results, in our final version, it won't be called
+	// this function is used to inspect the output the results, in our final version, it won't be called
+	public void pri() 
 	{
 		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
 	}

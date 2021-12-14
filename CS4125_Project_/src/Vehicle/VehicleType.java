@@ -1,6 +1,6 @@
 package Vehicle;
 
-public interface VehicleType {
+public interface VehicleType { 
 	double getspeed(); 
 	double getVehicleLength(); 
 	double getVehicleWidth();

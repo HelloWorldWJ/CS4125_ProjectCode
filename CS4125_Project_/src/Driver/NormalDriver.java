@@ -36,21 +36,21 @@ public class NormalDriver extends Driver{
 		return this.min_limitedSpeed;//return the minimum of the speed of normal driver
 	}
 	
-	public void Drive() {//
+	public void Drive() {//the driving method for normal driver
 		//System.out.println("B");
 		currentspeed = vehicle.getSpeed();
-		if(!isDecelerate) {
-			super.vehicle.speed_increase();
+		if(!isDecelerate) {//if the speed doesn't decrease, it will start increasing
+			super.vehicle.speed_increase();// whether the speed increases depends on whether it exceeds the maximum of speed
 			if(currentspeed >= max_limitedSpeed)
 				isDecelerate = true;
 		}
 		else if(isDecelerate) {
-			super.vehicle.speed_decrease();
+			super.vehicle.speed_decrease();// whether the speed decreases depends on whether it is below the minimum of speed
 			if(currentspeed <= min_limitedSpeed)
 				isDecelerate = false;
 		}		
 	}
-	
+	// this function is used to inspect the output the results, in our final version, it won't be called
 	public void pri() {
 		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
 	}

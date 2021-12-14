@@ -13,7 +13,7 @@ public class Lane3 extends Lane{
 	private int number_of_cells;
 	private int radius;
 	
-	public Lane3()
+	public Lane3()//constructor function and the variables below are all the private information about lane 1
 	{
 		this.center = new Point();
 		center.x = 600;
@@ -28,7 +28,8 @@ public class Lane3 extends Lane{
 		
 
 	}
-
+	
+	//return the information about lane 3.
 	@Override
 	public int getX() {
 		// TODO Auto-generated method stub

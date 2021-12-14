@@ -41,7 +41,7 @@ public class Vehicle {
 	}
 
 
-	public Vehicle(double angle, Point xy, Lane track, VehicleEngineDecorator veEngineDec) {
+	public Vehicle(double angle, Point xy, Lane track, VehicleEngineDecorator veEngineDec) {//constructor function
 
 		this.veEngineDec = veEngineDec;
 		this.vehicleLength = veEngineDec.getVehicleLength();
@@ -59,11 +59,11 @@ public class Vehicle {
 	}
 
 	public void speed_increase() {
-		this.angular_speed = this.angular_speed + this.acceleration;
+		this.angular_speed = this.angular_speed + this.acceleration; // if the speed increases, the speed will plus acceleration
 	}
 	
 	public void speed_decrease() {
-		this.angular_speed = this.angular_speed - 0.001;
+		this.angular_speed = this.angular_speed - 0.001;// if the speed increases, the speed will minus 0.001(default value)
 	}
 	
 	
@@ -75,7 +75,7 @@ public class Vehicle {
 	{
 		//speed_increase();
 		
-		if(this.circle_angle + this.angular_speed > 360)
+		if(this.circle_angle + this.angular_speed > 360)// if the sum_crircle exceeds 360, it will % 360
 		{
 			this.circle_angle = (this.circle_angle + this.angular_speed) % 360;
 		}
@@ -120,9 +120,9 @@ public class Vehicle {
 	public void move()
 	{
 		this.Sum_angle();
-		//System.out.println(this.track.get_Radius());
+		//coordinate transformation
 		this.position.x = (int)(Math.sin(Math.PI/180 *this.circle_angle) * this.track.get_Radius() + 553 - 22);//12
-		//System.out.println(this.circle_angle);
+		//coordinate transformation 
 		this.position.y = (int)(328 - Math.cos(Math.PI/180 *this.circle_angle) *  this.track.get_Radius() - 30);//20
 	}
 	
@@ -137,11 +137,13 @@ public class Vehicle {
 		return this.vehicleWidth;
 	}
 	
-	public BufferedImage createCarImage() 
+	
+	public BufferedImage createCarImage() // return the bufferedImage type
 	{
 		try {
-            BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));
+            BufferedImage img = ImageIO.read(new File(this.getVehicleImagePath()));// read the file
         	BufferedImage resized_car_image = new BufferedImage((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), BufferedImage.TYPE_INT_ARGB);
+        	//create the bufferedImage that has the specified length and specified width
 	        Graphics2D graphics = resized_car_image.createGraphics();
 	        graphics.drawImage(img.getScaledInstance((int)(this.getVehicleLength()), (int)(this.getVehicleWidth()), Image.SCALE_SMOOTH), 0, 0, null);
 	        graphics.dispose();

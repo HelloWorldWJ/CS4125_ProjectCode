@@ -8,6 +8,7 @@ public class Mazda implements VehicleType{
 	private String vehiclepath;
 	private String CarName;
 	
+	// the private variables below is related to the information about Mazda
 	public Mazda()
 	{
 		this.speed = 0.3;
@@ -16,6 +17,8 @@ public class Mazda implements VehicleType{
 		this.vehiclepath = "Mazda.png";//
 		this.CarName = "Mazda";
 	}
+	
+	//the codes are used to return information about corresponding car
 	@Override
 	public double getspeed() {
 		// TODO Auto-generated method stub
