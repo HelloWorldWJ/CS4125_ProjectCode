@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface Observer {
 
-	public void update(ArrayList<Double>speeds, ArrayList<String>drivernames, ArrayList<String>carNames);
+	public void update(ArrayList<Double>speeds, ArrayList<String>drivernames, ArrayList<String>carNames, ArrayList<String>driverTempers);
 }
 
 

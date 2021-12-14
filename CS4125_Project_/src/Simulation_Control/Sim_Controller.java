@@ -70,38 +70,38 @@ public class Sim_Controller extends Thread_source{
 		int DriverTemperJudge;
 		DriverTemperJudge = (int)(Math.random()*2);
 		if(DriverTemperJudge == 0) {
-			Driver Drive1 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "J.J");
+			Driver Drive1 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "J.J", "Normal");
 			this.drivers.add(Drive1);
 		}
 		else if(DriverTemperJudge == 1) {
-			Driver Drive1 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "J.J");
+			Driver Drive1 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Firstcar_loc, this.lanes.get(0), v8EngineCar), "J.J", "Irritable");
 			this.drivers.add(Drive1);
 		}
 		DriverTemperJudge = (int)(Math.random()*2);
 		if(DriverTemperJudge == 0) {
-			Driver Drive2 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam");
+			Driver Drive2 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam", "Normal");
 			this.drivers.add(Drive2);
 		}
 		else if(DriverTemperJudge == 1) {
-			Driver Drive2 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam");
+			Driver Drive2 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Secondcar_loc, this.lanes.get(1), v6EngineCar), "Sam", "Irritable");
 			this.drivers.add(Drive2);
 		}
 		DriverTemperJudge = (int)(Math.random()*2);
 		if(DriverTemperJudge == 0) {
-			Driver Drive3 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Thirdcar_loc, this.lanes.get(2), v4EngineCar), "Tom");
+			Driver Drive3 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Thirdcar_loc, this.lanes.get(2), v4EngineCar), "Tom", "Normal");
 			this.drivers.add(Drive3);
 		}
 		else if(DriverTemperJudge == 1) {
-			Driver Drive3 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Thirdcar_loc, this.lanes.get(2), v4EngineCar), "Tom");
+			Driver Drive3 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Thirdcar_loc, this.lanes.get(2), v4EngineCar), "Tom", "Irritable");
 			this.drivers.add(Drive3);
 		}
 		DriverTemperJudge = (int)(Math.random()*2);
 		if(DriverTemperJudge == 0) {
-			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack");
+			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.NORMAL, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack", "Normal");
 			this.drivers.add(Drive4);
 		}
 		else if(DriverTemperJudge == 1) {
-			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack");
+			Driver Drive4 = d_fac.createDriver(DriverFactory.DriverTemper.IRRITABLE, new Vehicle(3, this.Fourthcar_loc, this.lanes.get(3), v3EngineCar), "Jack", "Irritable");
 			this.drivers.add(Drive4);
 		}
 		

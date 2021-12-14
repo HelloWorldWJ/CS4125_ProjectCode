@@ -5,12 +5,14 @@ import Vehicle.Vehicle;
 public class Driver implements Runnable{
 	
 	private String name;
-    protected Vehicle vehicle;	
+    protected Vehicle vehicle;
+    protected String driverTemperType;
 
-	public Driver(String name, Vehicle vehicle)
+	public Driver(String name, Vehicle vehicle, String driverTemperType)
 	{
 		this.name = name;
 		this.vehicle = vehicle;
+		this.driverTemperType = driverTemperType;
 		
 	}
 	public String getName()
@@ -38,6 +40,10 @@ public class Driver implements Runnable{
 		}
 		
 		
+	}
+	
+	public String getDriverTemperType() {
+		return this.driverTemperType;
 	}
 	
 	public void pri() {

@@ -8,9 +8,9 @@ import org.junit.Test;
 import Vehicle.Vehicle;
 
 public class DriverTest {
-
-	private IrritableDriver IrritableDr = new IrritableDriver("Tom", new Vehicle());
-	private NormalDriver NormalDr = new NormalDriver("J.J", new Vehicle());
+	
+	private IrritableDriver IrritableDr = new IrritableDriver("Tom", new Vehicle(), "Irritable");
+	private NormalDriver NormalDr = new NormalDriver("J.J", new Vehicle(), "Normal");
 	
 	@Before
 	public void setUp() throws Exception {
@@ -27,10 +27,10 @@ public class DriverTest {
 
 	@Test
 	public void testgetLimitedSpeed() {
-		assertEquals(4.0, IrritableDr.getMaxLimitedSpeed(), 0.01);
-		assertEquals(2.0, IrritableDr.getMinLimitedSpeed(), 0.01);
-		assertEquals(2.0, NormalDr.getMaxLimitedSpeed(), 0.01);
-		assertEquals(1.0, NormalDr.getMinLimitedSpeed(), 0.01);
+		assertEquals(4.0 * 30, IrritableDr.getMaxLimitedSpeed(), 1);
+		assertEquals(2.0 * 30, IrritableDr.getMinLimitedSpeed(), 1);
+		assertEquals(2.0 * 30, NormalDr.getMaxLimitedSpeed(), 1);
+		assertEquals(1.0 * 30, NormalDr.getMinLimitedSpeed(), 1);
 	}
 
 

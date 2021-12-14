@@ -64,8 +64,8 @@ public class Draw_map implements I_Draw_map{
 	private void print_important_info()
 	{
 		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
-		System.out.println("----------------------------");
-		System.out.println("(Vehicle--DriverTemper--Speed)");	
+//		System.out.println("----------------------------");
+//		System.out.println("(Vehicle--DriverTemper--Speed)");	
 	}
 	
 	private void Observer_init()
@@ -102,15 +102,47 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void draw_updateinfo_in_all_tracks(double speed, String drivername, String carName, int height)
+	private void drawTitle()
+	{
+		this.graphics.setColor(Color.RED);
+		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
+		this.graphics.drawString("-------" + "Driver" + "-------" + "CarName" + "-----" + "Speed", 0, 490);
+		
+	}
+	
+	private void draw_updateinfo_in_all_tracks(double speed, String drivername, String carName, String driverTemperType, int height)
 	{
 
 		String speed_str = "" + speed;
 		//System.out.println(speed_str);
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
-		this.graphics.drawString(drivername + "                  " + carName + "        " + speed_str + "  " + " km/h", 0, height);
+		this.graphics.drawString(newDriverName(drivername) + "   " + driverTemperType + "      " + newCarName(carName) + "        " + speed_str + "  " + " km/h", 0, height);
 	 
+	}
+	
+	//method newDriverName() and newCarName() for looking better when showing the info on GUI
+	private String newDriverName(String drivername) {
+		if(drivername.equals("J.J"))
+			return drivername + "    ";
+		else if(drivername.equals("Sam"))
+			return drivername + " ";
+		else if(drivername.equals("Tom"))
+			return drivername + " ";
+		else
+			return drivername + " ";
+			
+	}
+	private String newCarName(String carName) {
+		if(carName.equals("Ferrari"))
+			return carName + "";
+		else if(carName.equals("Benz"))
+			return carName + "   ";
+		else if(carName.equals("Mazda"))
+			return carName + "  ";
+		else
+			return carName + "";
+			
 	}
 	
 	
@@ -162,13 +194,6 @@ public class Draw_map implements I_Draw_map{
 		this.buffer.show();
     }
 	
-	private void drawTitle()
-	{
-		this.graphics.setColor(Color.RED);
-		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
-		this.graphics.drawString("DriverName" + "--" + "CarName" + "--" + "Speed", 0, 490);
-		
-	}
 	
 	private void Observe_Distribute(ArrayList<Driver>ds)
 	{
@@ -190,13 +215,19 @@ public class Draw_map implements I_Draw_map{
 		carNames.add(ds.get(2).getVehilce().getCarName());
 		carNames.add(ds.get(3).getVehilce().getCarName());
 		
+		ArrayList<String>driverTempers = new ArrayList<>();
+		driverTempers.add(ds.get(0).getDriverTemperType());
+		driverTempers.add(ds.get(1).getDriverTemperType());
+		driverTempers.add(ds.get(2).getDriverTemperType());
+		driverTempers.add(ds.get(3).getDriverTemperType());
+				
 		
-		this.m.set_info(driverNames, speeds, carNames);	
+		this.m.set_info(driverNames, speeds, carNames, driverTempers);	
 		
-        this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), this.t1.Track1_carnames(), 510);
-        this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), this.t2.Track2_carnames(), 530);
-        this.draw_updateinfo_in_all_tracks(this.t3.Track3_speed(), this.t3.Track3_drivernames(), this.t3.Track3_carnames(), 550);
-        this.draw_updateinfo_in_all_tracks(this.t4.Track4_speed(), this.t4.Track4_drivernames(), this.t4.Track4_carnames(), 570);
+        this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), this.t1.Track1_carnames(), this.t1.Track1_driverTempers(), 510);
+        this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), this.t2.Track2_carnames(), this.t2.Track2_driverTempers(), 530);
+        this.draw_updateinfo_in_all_tracks(this.t3.Track3_speed(), this.t3.Track3_drivernames(), this.t3.Track3_carnames(), this.t3.Track3_driverTempers(), 550);
+        this.draw_updateinfo_in_all_tracks(this.t4.Track4_speed(), this.t4.Track4_drivernames(), this.t4.Track4_carnames(), this.t4.Track4_driverTempers(), 570);
 	}
 
 	
