@@ -49,12 +49,13 @@ public class Sim_Controller extends Thread_source{
 	public void create_Driver()
 	{
 		VehicleTypeFactory v_fac = new VehicleTypeFactory();
-		VehicleType Ferrari = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Ferrari);	
+		VehicleType Ferrari = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Ferrari);	// the factory will return the corresponding instance
 		VehicleType Benz = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Benz);
 		VehicleType Mazda = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Mazda);
 		VehicleType Santana = v_fac.createVehicle(VehicleTypeFactory.Vehicle_Type.Santana);
 		
-		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);//the codes bel uses the decorated pattern
+		//the codes below uses the decorated pattern
+		VehicleEngineDecorator v8EngineCar = new V8EngineDecorator(Ferrari);//for example, v8Engine will be equipped with Ferrari here
 		VehicleEngineDecorator v6EngineCar = new V6EngineDecorator(Benz);
 		VehicleEngineDecorator v4EngineCar = new V4EngineDecorator(Mazda);
 		VehicleEngineDecorator v3EngineCar = new V3EngineDecorator(Santana);
@@ -139,6 +140,17 @@ public class Sim_Controller extends Thread_source{
 	{
 		for(Driver d : drivers)//every driver is thread, so here, it starts every thread
 		{
+			
+//			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
+//			NormalDriver NormalDriver = (NormalDriver)driver;
+//			NormalDriver.Drive();
+//			
+//		}
+//		else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) 
+//		{
+//			IrritableDriver IrritableDriver = (IrritableDriver)driver;
+//			IrritableDriver.Drive();
+//		}
 			new Thread(d).start();
 		}
 		graphics.run();

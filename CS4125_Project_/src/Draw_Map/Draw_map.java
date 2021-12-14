@@ -65,8 +65,7 @@ public class Draw_map implements I_Draw_map{
 	private void print_important_info()
 	{
 		System.out.println("Map size: " + Map_size_x + " " + Map_size_y);
-//		System.out.println("----------------------------");
-//		System.out.println("(Vehicle--DriverTemper--Speed)");	
+
 	}
 	
 	private void Observer_init()
@@ -90,6 +89,7 @@ public class Draw_map implements I_Draw_map{
 	}
 	
 
+	//this function can draw the vehicles on the window.
 	private void drawVehicle(Vehicle vehicle)
 	{
 		
@@ -103,7 +103,7 @@ public class Draw_map implements I_Draw_map{
         this.graphics.drawImage(vehicle.getCarImage(), at, null);
 	}
 	
-	private void drawTitle()
+	private void drawTitle()// the title drawing will be implemented in this function
 	{
 		this.graphics.setColor(Color.RED);
 		this.graphics.setFont(new Font("Calibri", Font.BOLD, 13));
@@ -111,6 +111,7 @@ public class Draw_map implements I_Draw_map{
 		
 	}
 	
+	// this function can draw the infomation of all cars 
 	private void draw_updateinfo_in_all_tracks(double speed, String drivername, String carName, String driverTemperType, int height)
 	{
 
@@ -146,7 +147,7 @@ public class Draw_map implements I_Draw_map{
 			
 	}
 	
-	
+	// this function will draw all of lanes on the window
 	private void drawLane(Lane lane)
 	{
 		this.graphics.setColor(lane.getLaneColor());
@@ -179,7 +180,7 @@ public class Draw_map implements I_Draw_map{
 			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
 				NormalDriver NormalDriver = (NormalDriver)driver;
 				NormalDriver.Drive();
-				//NormalDriver.pri();
+				
 			}
 			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) 
 			{
@@ -223,7 +224,7 @@ public class Draw_map implements I_Draw_map{
 		driverTempers.add(ds.get(3).getDriverTemperType());
 				
 		
-		this.m.set_info(driverNames, speeds, carNames, driverTempers);	
+		this.m.set_info(driverNames, speeds, carNames, driverTempers);	// deliver the information to the concrete subject class
 		
         this.draw_updateinfo_in_all_tracks(this.t1.Track1_speed(), this.t1.Track1_drivernames(), this.t1.Track1_carnames(), this.t1.Track1_driverTempers(), 510);
         this.draw_updateinfo_in_all_tracks(this.t2.Track2_speed(), this.t2.Track2_drivernames(), this.t2.Track2_carnames(), this.t2.Track2_driverTempers(), 530);
@@ -237,7 +238,7 @@ public class Draw_map implements I_Draw_map{
 		
 		try 
 		{
-			return ImageIO.read(new File(this.BACKGROUND_PATH));	
+			return ImageIO.read(new File(this.BACKGROUND_PATH));// read the picture that will decorate the background
 			            
 		} 
 
