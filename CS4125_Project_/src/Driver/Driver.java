@@ -2,7 +2,7 @@ package Driver;
 import Thread.Threadprocess;
 import Vehicle.Vehicle;
 
-public class Driver implements Runnable{
+public abstract class Driver implements Runnable{
 	
 	private String name;
     protected Vehicle vehicle;
@@ -32,19 +32,7 @@ public class Driver implements Runnable{
 	}
 	
 	@Override
-	public void run() {// because it implements the runnable interface so this class should have the function below that is associated with threads
-		// every driver is a thread 
-		Threadprocess t = new Threadprocess(Threadprocess.DEFAULT_FRAMERATE);
-		t.setMessage("Driver");
-		while(true)
-		{
-			t.start();
-			this.drive();
-			t.end();
-		}
-		
-		
-	}
+	 public abstract void run();
 	
 	public String getDriverTemperType() {// return the driverTemperTpe
 		return this.driverTemperType;

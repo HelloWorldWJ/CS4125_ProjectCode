@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import Driver.Driver;
 import Driver.DriverFactory;
+import Driver.IrritableDriver;
+import Driver.NormalDriver;
 import Road.Lane;
 import Road.Lane1;
 import Road.Lane2;
@@ -140,18 +142,19 @@ public class Sim_Controller extends Thread_source{
 	{
 		for(Driver d : drivers)//every driver is thread, so here, it starts every thread
 		{
+				
+			if(d.getClass().toString().equals("class Driver.NormalDriver")) 
+			{
+				NormalDriver NormalDriver = (NormalDriver)d;//downward transition, convert driver class to normalDriver class
+				new Thread(NormalDriver).start();		
+		    }
+		     else if(d.getClass().toString().equals("class Driver.IrritableDriver")) 
+		    {
+		    	 IrritableDriver IrritableDriver = (IrritableDriver)d;//downward transition, convert driver class to irritableDriver class
+		    	 new Thread(IrritableDriver).start();
 			
-//			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
-//			NormalDriver NormalDriver = (NormalDriver)driver;
-//			NormalDriver.Drive();
-//			
-//		}
-//		else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) 
-//		{
-//			IrritableDriver IrritableDriver = (IrritableDriver)driver;
-//			IrritableDriver.Drive();
-//		}
-			new Thread(d).start();
+		    }
+			
 		}
 		graphics.run();
 		

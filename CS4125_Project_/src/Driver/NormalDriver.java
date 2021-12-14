@@ -1,5 +1,6 @@
 package Driver;
 
+import Thread.Threadprocess;
 import Vehicle.Vehicle;
 
 public class NormalDriver extends Driver{
@@ -53,6 +54,21 @@ public class NormalDriver extends Driver{
 	// this function is used to inspect the output the results, in our final version, it won't be called
 	public void pri() {
 		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Threadprocess t = new Threadprocess(Threadprocess.DEFAULT_FRAMERATE);
+		t.setMessage("Driver");
+		while(true)
+		{
+			t.start();
+			this.drive();
+			this.Drive();
+			t.end();
+		}
+		
 	}
 
 }

@@ -166,8 +166,6 @@ public class Draw_map implements I_Draw_map{
 	public void render() 
 	{
 
-//		Speed_Monitor m = new Speed_Monitor();
-//		Speed_show s1 = new Speed_show(m); 
 		this.drawbackground();
 		for (Lane l : this.lanes) 
 		{
@@ -176,17 +174,7 @@ public class Draw_map implements I_Draw_map{
 		for (Driver driver : this.drivers)
 		{
 			
-			this.drawVehicle(driver.getVehilce());			
-			if(driver.getClass().toString().equals("class Driver.NormalDriver")) {
-				NormalDriver NormalDriver = (NormalDriver)driver;
-				NormalDriver.Drive();
-				
-			}
-			else if(driver.getClass().toString().equals("class Driver.IrritableDriver")) 
-			{
-				IrritableDriver IrritableDriver = (IrritableDriver)driver;
-				IrritableDriver.Drive();
-			}
+			this.drawVehicle(driver.getVehilce());
 
 		}	
 		

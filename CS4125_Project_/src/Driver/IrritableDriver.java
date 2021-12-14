@@ -3,6 +3,7 @@
  */
 package Driver;
 
+import Thread.Threadprocess;
 import Vehicle.Vehicle;
 
 
@@ -57,6 +58,21 @@ public class IrritableDriver extends Driver {// the irriable driver extends the 
 	public void pri() 
 	{
 		System.out.println(vehicle.getCarName() + "--" + getDriverTemperType() + "--" + vehicle.getSpeed());
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Threadprocess t = new Threadprocess(Threadprocess.DEFAULT_FRAMERATE);
+		t.setMessage("Driver");
+		while(true)
+		{
+			t.start();
+			this.drive();
+			this.Drive();
+			t.end();
+		}
+		
 	}
 
 }
