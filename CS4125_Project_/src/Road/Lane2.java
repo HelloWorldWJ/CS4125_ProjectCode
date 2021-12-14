@@ -1,9 +1,8 @@
-package Map;
+package Road;
+import java.awt.*;
+import java.util.HashMap;
 
-import java.awt.Color;
-import java.awt.Point;
-
-public class Lane4 extends Lane{
+public class Lane2 extends Lane{
 	private Point center;
 	private int wi;
 	private int he;
@@ -13,73 +12,61 @@ public class Lane4 extends Lane{
 	private int number_of_cells;
 	private int radius;
 	
-	public Lane4()
+	
+	public Lane2()
 	{
 		this.center = new Point();
-		center.x = 650;
-		center.y = 175;
-		this.wi = 406;
-		this.he = 406;
+		center.x = 550;
+		center.y = 75;
+		this.wi = 506;
+		this.he = 506;
 		this.lane_width = 26;
 		this.number_of_cells = 1000;
 		this.angle_per_cell = 360/this.number_of_cells;
-		this.lane_Color =  new Color(75, 66, 66);
+		this.lane_Color =  new Color(87, 73, 76);
 		this.radius = this.wi/2;
 		
 
 	}
-
-	@Override
 	public int getX() {
-		// TODO Auto-generated method stub
 		return this.center.x / 2;
 	}
 
-	@Override
 	public int getY() {
-		// TODO Auto-generated method stub
 		return this.center.y / 2;
 	}
 
-	@Override
 	public int getWi() {
-		// TODO Auto-generated method stub
 		return this.wi;
 	}
 
-	@Override
 	public int getHe() {
-		// TODO Auto-generated method stub
 		return this.he;
 	}
-
-	@Override
-	public int getline_width() {
-		// TODO Auto-generated method stub
+	
+	public int getline_width()
+	{
 		return this.lane_width;
 	}
 
-	@Override
 	public int getNumCells() {
-		// TODO Auto-generated method stub
 		return this.number_of_cells;
 	}
-
-	@Override
+	
 	public Color getLaneColor() {
-		// TODO Auto-generated method stub
 		return lane_Color;
 	}
-
-	@Override
-	public Point get_Position(int cell_index) {
-		// TODO Auto-generated method stub
+	
+	public Point get_Position(int cell_index)// need to be modified
+	{
 		Point p = new Point();
 		return p;
+		
 	}
-
+	
 	@Override
-	public int get_Radius() {
+	public int get_Radius() 
+	{
 		// TODO Auto-generated method stub
 		return radius;
 	}

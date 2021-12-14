@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import Map.Lane;
+import Road.Lane;
 
 
 public class Vehicle {

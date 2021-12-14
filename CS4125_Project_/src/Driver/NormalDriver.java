@@ -16,8 +16,8 @@ public class NormalDriver extends Driver{
 	public NormalDriver(String name, Vehicle vehicle, String driverTemperType) {
 		super(name, vehicle, driverTemperType);
 //		this.DriverTemperType = "Normal";
-		this.max_limitedSpeed = 2 * 30;
-		this.min_limitedSpeed = 1 * 30;
+		this.max_limitedSpeed = 2 * 30;// normal driver always has lower minimum speed
+		this.min_limitedSpeed = 1 * 30;// normal driver always has higher maximum speed
 		//this.Drive();
 		
 		this.isDecelerate = false;
@@ -28,15 +28,15 @@ public class NormalDriver extends Driver{
 //		return this.DriverTemperType;
 //	}
 	
-	public double getMaxLimitedSpeed() {
-		return this.max_limitedSpeed;
+	public double getMaxLimitedSpeed() { 
+		return this.max_limitedSpeed;//return the maximum of the speed of normal driver
 	}
 	
 	public double getMinLimitedSpeed() {
-		return this.min_limitedSpeed;
+		return this.min_limitedSpeed;//return the minimum of the speed of normal driver
 	}
 	
-	public void Drive() {
+	public void Drive() {//
 		//System.out.println("B");
 		currentspeed = vehicle.getSpeed();
 		if(!isDecelerate) {

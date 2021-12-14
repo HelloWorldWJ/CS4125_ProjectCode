@@ -1,4 +1,4 @@
-package Map;
+package Road;
 
 import java.awt.Color;
 import java.awt.Point;

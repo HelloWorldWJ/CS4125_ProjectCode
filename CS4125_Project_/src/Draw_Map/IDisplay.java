@@ -1,4 +1,4 @@
-package Map;
+package Draw_Map;
 import java.awt.*;
 
 public interface IDisplay {

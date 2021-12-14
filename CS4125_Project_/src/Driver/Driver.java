@@ -8,28 +8,32 @@ public class Driver implements Runnable{
     protected Vehicle vehicle;
     protected String driverTemperType;
 
-	public Driver(String name, Vehicle vehicle, String driverTemperType)
+	public Driver(String name, Vehicle vehicle, String driverTemperType)//the constructor of class driver
 	{
 		this.name = name;
 		this.vehicle = vehicle;
 		this.driverTemperType = driverTemperType;
 		
 	}
-	public String getName()
+	public String getName()// return the name
 	{
 		return this.name;
 	}
-	public Vehicle getVehilce()
+	
+	public Vehicle getVehilce()// return the object driver
 	{
 		return this.vehicle;
 	}
-	public void drive()
+	
+	public void drive()// call the move function in instance vehicle
 	{
+		//it seems that driver is driving his car
 		this.vehicle.move();
 	}
 	
 	@Override
-	public void run() {
+	public void run() {// because it implements the runnable interface so this class should have the function below that is associated with threads
+		// every driver is a thread 
 		Timer t = new Timer(Timer.DEFAULT_FRAMERATE);
 		t.setMessage("Driver");
 		while(true)
@@ -42,7 +46,7 @@ public class Driver implements Runnable{
 		
 	}
 	
-	public String getDriverTemperType() {
+	public String getDriverTemperType() {// return the driverTemperTpe
 		return this.driverTemperType;
 	}
 	

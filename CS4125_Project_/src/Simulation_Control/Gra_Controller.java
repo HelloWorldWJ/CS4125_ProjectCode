@@ -1,13 +1,13 @@
 package Simulation_Control;
-import Map.Display;
-import Map.Draw_map;
-import Map.IDisplay;
-import Map.Lane;
 import Thread.Timer;
 
 import java.util.ArrayList;
 
+import Draw_Map.Display;
+import Draw_Map.Draw_map;
+import Draw_Map.IDisplay;
 import Driver.Driver;
+import Road.Lane;
 
 public class Gra_Controller extends Thread_source{
 	private double map_wi, map_he;

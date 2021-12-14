@@ -1,13 +1,12 @@
 package Driver;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import Vehicle.Vehicle;
 
-public class DriverTest {
+public class DriverTest {//This class can be used to test the function in the driver class
 	
 	private IrritableDriver IrritableDr = new IrritableDriver("Tom", new Vehicle(), "Irritable");
 	private NormalDriver NormalDr = new NormalDriver("J.J", new Vehicle(), "Normal");
