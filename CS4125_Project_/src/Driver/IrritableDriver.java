@@ -20,8 +20,8 @@ public class IrritableDriver extends Driver {
 	public IrritableDriver(String name, Vehicle vehicle) {
 		super(name, vehicle);
 		this.DriverTemperType = "Irritable";
-		this.max_limitedSpeed = 4;
-		this.min_limitedSpeed = 2;
+		this.max_limitedSpeed = 4 * 30;
+		this.min_limitedSpeed = 2 * 30;
 		//this.Drive();
 		
 		this.isDecelerate = false;

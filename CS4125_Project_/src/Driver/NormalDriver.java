@@ -16,8 +16,8 @@ public class NormalDriver extends Driver{
 	public NormalDriver(String name, Vehicle vehicle) {
 		super(name, vehicle);
 		this.DriverTemperType = "Normal";
-		this.max_limitedSpeed = 2;
-		this.min_limitedSpeed = 1;
+		this.max_limitedSpeed = 2 * 30;
+		this.min_limitedSpeed = 1 * 30;
 		//this.Drive();
 		
 		this.isDecelerate = false;

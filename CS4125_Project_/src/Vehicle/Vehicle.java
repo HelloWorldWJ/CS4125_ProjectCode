@@ -114,7 +114,7 @@ public class Vehicle {
 	
 	public double getSpeed() 
 	{
-		return this.angular_speed ;
+		return this.angular_speed * 30 ;
 	}
 	
 	public void move()

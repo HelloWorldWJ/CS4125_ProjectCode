@@ -39,7 +39,7 @@ public class V6EngineDecorator extends VehicleEngineDecorator{
 	}
 	
 	private void setAcceleration() {
-		this.acceleration = 0.004;
+		this.acceleration = 0.004 * 2;
 	}
 	
 	public double getAcceleration() {
